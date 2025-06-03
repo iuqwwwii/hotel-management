@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" 
+      fx:controller="com.hotel.client.controller.DirectorStaffController"
+      spacing="15" styleClass="content-pane">
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+    
+    <Label text="Управление персоналом" styleClass="section-header" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+    
+    <!-- Панель фильтров и поиска -->
+    <HBox spacing="15" alignment="CENTER_LEFT">
+        <TextField fx:id="searchField" promptText="Поиск по имени или должности" prefWidth="250" />
+        <ComboBox fx:id="departmentFilter" promptText="Отдел" prefWidth="150" />
+        <ComboBox fx:id="positionFilter" promptText="Должность" prefWidth="150" />
+        
+        <Region HBox.hgrow="ALWAYS" />
+        
+        <Button text="Добавить сотрудника" onAction="#onAddStaff" 
+                style="-fx-background-color: #4caf50; -fx-text-fill: white;" />
+    </HBox>
+    
+    <!-- Таблица персонала -->
+    <TableView fx:id="staffTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="idColumn" text="ID" prefWidth="50" />
+            <TableColumn fx:id="nameColumn" text="ФИО" prefWidth="200" />
+            <TableColumn fx:id="positionColumn" text="Должность" prefWidth="150" />
+            <TableColumn fx:id="departmentColumn" text="Отдел" prefWidth="150" />
+            <TableColumn fx:id="phoneColumn" text="Телефон" prefWidth="120" />
+            <TableColumn fx:id="emailColumn" text="Email" prefWidth="180" />
+            <TableColumn fx:id="actionsColumn" text="Действия" prefWidth="120" />
+        </columns>
+    </TableView>
+    
+    <!-- Статистика персонала -->
+    <HBox spacing="15">
+        <!-- График распределения по отделам -->
+        <VBox styleClass="content-pane" style="-fx-background-color: white; -fx-padding: 15; -fx-background-radius: 5;" HBox.hgrow="ALWAYS">
+            <Label text="Распределение по отделам" styleClass="chart-title" style="-fx-font-weight: bold;"/>
+            <PieChart fx:id="departmentChart" legendVisible="true" labelsVisible="true" />
+        </VBox>
+        
+        <!-- График эффективности персонала -->
+        <VBox styleClass="content-pane" style="-fx-background-color: white; -fx-padding: 15; -fx-background-radius: 5;" HBox.hgrow="ALWAYS">
+            <Label text="Эффективность персонала" styleClass="chart-title" style="-fx-font-weight: bold;"/>
+            <BarChart fx:id="performanceChart">
+                <xAxis>
+                    <CategoryAxis label="Отдел"/>
+                </xAxis>
+                <yAxis>
+                    <NumberAxis label="Эффективность, %"/>
+                </yAxis>
+            </BarChart>
+        </VBox>
+    </HBox>
+    
+    <HBox alignment="CENTER_RIGHT" spacing="10">
+        <Button text="Экспорт данных" onAction="#onExportData" 
+                style="-fx-background-color: #4285f4; -fx-text-fill: white;"/>
+        <Button text="Обновить" onAction="#onRefresh" 
+                style="-fx-background-color: #4285f4; -fx-text-fill: white;"/>
+    </HBox>
+</VBox> 

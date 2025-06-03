@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+
+<VBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.hotel.client.controller.GuestBookingController"
+      spacing="15" alignment="TOP_CENTER" 
+      styleClass="booking-form"
+      prefWidth="550">
+      
+    <padding><Insets top="25" right="30" bottom="25" left="30"/></padding>
+    
+    <Label text="Бронирование номера" styleClass="booking-header"/>
+    
+    <TabPane prefWidth="Infinity" tabClosingPolicy="UNAVAILABLE">
+        <Tab text="Детали бронирования">
+            <VBox spacing="15" style="-fx-padding: 10;">
+                <GridPane hgap="15" vgap="12">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="NEVER" minWidth="150" />
+                        <ColumnConstraints hgrow="ALWAYS" minWidth="250" />
+                    </columnConstraints>
+                    
+                    <Label text="Номер:" GridPane.rowIndex="0" GridPane.columnIndex="0" 
+                          styleClass="detail-label"/>
+                    <Label fx:id="lblRoomNumber" GridPane.rowIndex="0" GridPane.columnIndex="1" 
+                          styleClass="detail-value"/>
+                    
+                    <Label text="Тип:" GridPane.rowIndex="1" GridPane.columnIndex="0" 
+                          styleClass="detail-label"/>
+                    <Label fx:id="lblRoomType" GridPane.rowIndex="1" GridPane.columnIndex="1" 
+                          styleClass="detail-value"/>
+                    
+                    <Label text="Цена за ночь:" GridPane.rowIndex="2" GridPane.columnIndex="0" 
+                          styleClass="detail-label"/>
+                    <Label fx:id="lblRoomPrice" GridPane.rowIndex="2" GridPane.columnIndex="1" 
+                          styleClass="detail-value"/>
+                    
+                    <Label text="Дата заезда:" GridPane.rowIndex="3" GridPane.columnIndex="0" 
+                          styleClass="detail-label"/>
+                    <DatePicker fx:id="startDatePicker" GridPane.rowIndex="3" GridPane.columnIndex="1" />
+                    
+                    <Label text="Дата выезда:" GridPane.rowIndex="4" GridPane.columnIndex="0" 
+                          styleClass="detail-label"/>
+                    <DatePicker fx:id="endDatePicker" GridPane.rowIndex="4" GridPane.columnIndex="1" />
+                    
+                    <Label text="Итоговая стоимость:" GridPane.rowIndex="5" GridPane.columnIndex="0" 
+                          styleClass="detail-label"/>
+                    <Label fx:id="lblTotalCost" GridPane.rowIndex="5" GridPane.columnIndex="1" 
+                          styleClass="total-cost"/>
+                    
+                    <Label text="Примечания:" GridPane.rowIndex="6" GridPane.columnIndex="0" 
+                          styleClass="detail-label"/>
+                    <TextArea fx:id="notesField" GridPane.rowIndex="6" GridPane.columnIndex="1"
+                             prefRowCount="3" promptText="Особые пожелания или запросы" />
+                </GridPane>
+            </VBox>
+        </Tab>
+        <Tab text="Оплата" fx:id="paymentTab">
+            <VBox spacing="15" style="-fx-padding: 10;">
+                <GridPane hgap="15" vgap="12">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="NEVER" minWidth="150" />
+                        <ColumnConstraints hgrow="ALWAYS" minWidth="250" />
+                    </columnConstraints>
+                    
+                    <Label text="Способ оплаты:" GridPane.rowIndex="0" GridPane.columnIndex="0" 
+                          styleClass="detail-label"/>
+                    <ComboBox fx:id="paymentMethodCombo" GridPane.rowIndex="0" GridPane.columnIndex="1"
+                             promptText="Выберите способ оплаты">
+                        <items>
+                            <FXCollections fx:factory="observableArrayList">
+                                <String fx:value="Наличными при заселении" />
+                                <String fx:value="Банковская карта" />
+                                <String fx:value="Онлайн-платеж" />
+                            </FXCollections>
+                        </items>
+                    </ComboBox>
+
+                    <Label text="К оплате:" GridPane.rowIndex="1" GridPane.columnIndex="0" 
+                          styleClass="detail-label"/>
+                    <Label fx:id="paymentAmountLabel" GridPane.rowIndex="1" GridPane.columnIndex="1" 
+                          styleClass="payment-amount"/>
+                    
+                    <!-- Секция с полями для карты будет видима только при выборе карты -->
+                    <VBox fx:id="cardDetailsSection" GridPane.rowIndex="2" GridPane.columnIndex="0" 
+                         GridPane.columnSpan="2" spacing="10" visible="false" managed="false">
+                        <Separator />
+                        <Label text="Детали карты" styleClass="section-header"/>
+                        
+                        <GridPane hgap="15" vgap="12">
+                            <columnConstraints>
+                                <ColumnConstraints hgrow="NEVER" minWidth="150" />
+                                <ColumnConstraints hgrow="ALWAYS" minWidth="250" />
+                            </columnConstraints>
+                            
+                            <Label text="Номер карты:" GridPane.rowIndex="0" GridPane.columnIndex="0"
+                                  styleClass="detail-label"/>
+                            <TextField fx:id="cardNumberField" GridPane.rowIndex="0" GridPane.columnIndex="1"
+                                     promptText="XXXX XXXX XXXX XXXX"/>
+                            
+                            <Label text="Срок действия:" GridPane.rowIndex="1" GridPane.columnIndex="0"
+                                  styleClass="detail-label"/>
+                            <TextField fx:id="cardExpiryField" GridPane.rowIndex="1" GridPane.columnIndex="1"
+                                     promptText="MM/YY"/>
+                            
+                            <Label text="CVV код:" GridPane.rowIndex="2" GridPane.columnIndex="0"
+                                  styleClass="detail-label"/>
+                            <PasswordField fx:id="cardCvvField" GridPane.rowIndex="2" GridPane.columnIndex="1"
+                                        promptText="XXX"/>
+                                        
+                            <Label text="Имя владельца:" GridPane.rowIndex="3" GridPane.columnIndex="0"
+                                  styleClass="detail-label"/>
+                            <TextField fx:id="cardHolderField" GridPane.rowIndex="3" GridPane.columnIndex="1"
+                                      promptText="IVANOV IVAN"/>
+                        </GridPane>
+                    </VBox>
+                </GridPane>
+                
+                <CheckBox fx:id="savePaymentMethodCheckbox" text="Сохранить данные для будущих бронирований"/>
+            </VBox>
+        </Tab>
+    </TabPane>
+
+    <Label fx:id="errorLabel" textFill="red" />
+    
+    <HBox spacing="15" alignment="CENTER">
+        <Button text="Отмена" onAction="#onCancel" styleClass="cancel-button"/>
+        <Button text="Подтвердить бронирование" onAction="#onBook" styleClass="confirm-button"/>
+    </HBox>
+</VBox>

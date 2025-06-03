@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.TilePane?>
+<ScrollPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.hotel.client.controller.GuestRoomCardController"
+            fitToWidth="true">
+    <content>
+        <TilePane fx:id="tilePane"
+                  padding="20"
+                  hgap="20" vgap="20"
+                  prefColumns="2"
+                  styleClass="gallery-pane"/>
+    </content>
+</ScrollPane>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.effect.DropShadow?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" 
+      fx:controller="com.hotel.client.controller.ReviewsViewController"
+      spacing="20" styleClass="content-pane"
+      stylesheets="/css/reviews.css, /css/main.css">
+    <padding><Insets top="25" right="25" bottom="25" left="25"/></padding>
+    
+    <HBox alignment="CENTER_LEFT" spacing="15">
+        <Label text="Отзывы о номерах" styleClass="section-header">
+            <font>
+                <Font name="System Bold" size="24"/>
+            </font>
+            <effect>
+                <DropShadow radius="3.0" color="#00000033" offsetY="1.0"/>
+            </effect>
+        </Label>
+        <Region HBox.hgrow="ALWAYS" />
+        <Label fx:id="reviewsCountLabel" text="Всего отзывов: 0" styleClass="summary-label"/>
+    </HBox>
+    
+    <!-- Фильтры для отзывов -->
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <ComboBox fx:id="roomFilterComboBox" promptText="Выберите номер" prefWidth="200"/>
+        <ComboBox fx:id="ratingFilterComboBox" promptText="Оценка" prefWidth="120"/>
+        <Button onAction="#onApplyFilter" text="Применить" styleClass="btn-primary"/>
+        <Button onAction="#onResetFilter" text="Сбросить" styleClass="btn-cancel"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button fx:id="addReviewButton" onAction="#onAddReview" text="Оставить отзыв" styleClass="add-review-button"/>
+    </HBox>
+    
+    <!-- Разделитель -->
+    <Separator />
+    
+    <!-- Список отзывов -->
+    <StackPane VBox.vgrow="ALWAYS">
+        <ScrollPane fitToWidth="true" styleClass="reviews-scroll-pane" VBox.vgrow="ALWAYS">
+            <VBox fx:id="reviewsContainer" spacing="15" VBox.vgrow="ALWAYS" styleClass="review-list">
+                <!-- Здесь будут динамически добавляться карточки отзывов -->
+            </VBox>
+        </ScrollPane>
+        
+        <StackPane fx:id="loadingPane" visible="false" managed="false" style="-fx-background-color: rgba(255,255,255,0.7);">
+            <ProgressIndicator maxWidth="100" maxHeight="100"/>
+        </StackPane>
+    </StackPane>
+    
+    <!-- Статус загрузки -->
+    <Label fx:id="statusLabel" visible="false" styleClass="status-message" alignment="CENTER" maxWidth="Infinity">
+        <VBox.margin>
+            <Insets top="10"/>
+        </VBox.margin>
+    </Label>
+</VBox> 

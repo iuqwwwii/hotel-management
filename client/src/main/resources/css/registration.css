@@ -1,0 +1,102 @@
+/* Контейнер форм - responsive */
+.form-container-responsive {
+-fx-background-color: rgba(5, 24, 46, 0.15); /* полупрозрачный фон */
+-fx-background-radius: 25;
+-fx-border-width: 5;
+-fx-border-color: rgba(5, 24, 46, 0.3);
+-fx-border-radius: 25;
+-fx-padding: 30;
+-fx-background-position: top center;
+-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0.3, 0, 5);
+/* размеры адаптивны: ограничиваем min/max */
+-fx-min-width: 280px;
+-fx-pref-width: 350px;
+-fx-max-width: 450px;
+-fx-alignment: center;
+-fx-spacing: 15;
+}
+
+/* Заголовок в стиле hand-drawn */
+.title-label {
+-fx-font-family: "Franklin Gothic Medium", serif;
+-fx-font-size: 28px;
+-fx-text-fill: #b9d4f3; /* цвет текста */
+-fx-padding: 0 0 10 0;
+}
+
+/* Поля ввода */
+.text-field, .password-field {
+-fx-background-radius: 15;
+-fx-border-radius: 15;
+-fx-border-width: 2;
+-fx-border-color: #ffb6c1; /* lightpink */
+-fx-background-color: #fff0f5; /* lavenderblush */
+-fx-text-fill: #333;
+-fx-prompt-text-fill: #aaa;
+-fx-padding: 12;
+-fx-max-width: 400px;
+-fx-min-width: 200px;
+-fx-pref-width: 300px;
+}
+
+.text-field:focused, .password-field:focused {
+-fx-border-color: #ff69b4; /* hotpink */
+}
+
+/* Кнопки */
+.btn-primary {
+-fx-background-color: linear-gradient(to right, #ffb6c1, #ff69b4);
+-fx-text-fill: #fff;
+-fx-font-size: 16px;
+-fx-font-weight: bold;
+-fx-background-radius: 20;
+-fx-cursor: hand;
+-fx-padding: 12 30;
+-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0.2, 0, 2);
+-fx-pref-width: 200px;
+-fx-max-width: 300px;
+}
+
+.btn-primary:hover {
+-fx-background-color: linear-gradient(to right, #ff69b4, #ffb6c1);
+-fx-scale-x: 1.05;
+-fx-scale-y: 1.05;
+}
+
+/* Ссылки */
+.btn-link {
+-fx-text-fill: #ff7aba;
+-fx-underline: true;
+-fx-font-size: 12px;
+}
+
+/* Ошибки */
+.error-label {
+-fx-text-fill: #dc143c; /* crimson */
+-fx-font-size: 12px;
+-fx-padding: 5 0 0 0;
+-fx-min-height: 20px;
+}
+
+/* Кнопка закрытия */
+.close-button {
+-fx-background-color: transparent;
+-fx-text-fill: #ff7aba;
+-fx-font-size: 18px;
+-fx-font-weight: bold;
+-fx-padding: 2 8;
+-fx-background-radius: 50%;
+-fx-border-radius: 50%;
+-fx-cursor: hand;
+-fx-alignment: center;
+-fx-content-display: center;
+-fx-max-width: 30px;
+-fx-max-height: 30px;
+-fx-min-width: 30px;
+-fx-min-height: 30px;
+}
+
+.close-button:hover {
+-fx-background-color: rgba(255, 122, 186, 0.2);
+}
+

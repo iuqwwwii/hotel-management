@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" 
+            fx:controller="com.hotel.client.controller.GuestRoomsCardsController">
+    <top>
+        <VBox spacing="10">
+            <padding>
+                <Insets top="15" right="15" bottom="5" left="15"/>
+            </padding>
+            
+            <Label text="Номера отеля" style="-fx-font-size: 22px; -fx-font-weight: bold;" />
+            
+            <HBox spacing="15" alignment="CENTER_LEFT">
+                <TextField fx:id="searchField" promptText="Поиск по типу или номеру" prefWidth="250" 
+                           style="-fx-background-radius: 20;" />
+                
+                <ComboBox fx:id="roomTypeFilter" promptText="Тип номера" prefWidth="150" />
+                
+                <HBox spacing="5" alignment="CENTER_LEFT">
+                    <Label text="Цена от:" />
+                    <TextField fx:id="minPriceField" prefWidth="80" promptText="0" />
+                    <Label text="до:" />
+                    <TextField fx:id="maxPriceField" prefWidth="80" promptText="макс." />
+                </HBox>
+                
+                <CheckBox fx:id="availableOnlyCheck" text="Только доступные" selected="true" />
+                
+                <Region HBox.hgrow="ALWAYS" />
+                
+                <Button text="Сбросить фильтры" onAction="#onResetFilters" 
+                        style="-fx-background-color: #e0e0e0;" />
+                <Button text="Применить" onAction="#onApplyFilters" 
+                        style="-fx-background-color: #4285f4; -fx-text-fill: white;" />
+            </HBox>
+            
+            <Separator />
+        </VBox>
+    </top>
+    <center>
+        <ScrollPane fitToWidth="true" style="-fx-background-color: transparent;">
+            <content>
+                <VBox>
+                    <HBox alignment="CENTER_RIGHT">
+                        <padding>
+                            <Insets top="5" right="5" bottom="5" left="5"/>
+                        </padding>
+                        <Label fx:id="resultsCountLabel" text="Найдено номеров: 0" />
+                    </HBox>
+                    <TilePane fx:id="roomsContainer" 
+                              prefColumns="2" 
+                              hgap="20" vgap="20"
+                              style="-fx-background-color: transparent; -fx-padding: 20;">
+                    </TilePane>
+                </VBox>
+            </content>
+        </ScrollPane>
+    </center>
+</BorderPane> 

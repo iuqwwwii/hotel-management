@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" 
+      fx:controller="com.hotel.client.controller.AdminManageUsersController"
+      spacing="15" styleClass="content-pane">
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+    
+    <Label text="Управление пользователями" styleClass="section-header">
+        <font>
+            <Font name="System Bold" size="24"/>
+        </font>
+    </Label>
+    
+    <!-- Фильтры и кнопки действий -->
+    <HBox spacing="15" alignment="CENTER_LEFT">
+        <ComboBox fx:id="roleFilterComboBox" promptText="Все роли" prefWidth="150"/>
+        <TextField fx:id="searchField" promptText="Поиск по имени или email" prefWidth="250" />
+        <Button text="Применить" onAction="#onApplyFilter" styleClass="action-button"/>
+        <Button text="Сбросить" onAction="#onResetFilter" styleClass="btn-cancel"/>
+        <HBox HBox.hgrow="ALWAYS"/>
+        <Button text="Добавить пользователя" onAction="#onAddUser" styleClass="action-button"/>
+    </HBox>
+    
+    <!-- Таблица пользователей -->
+    <TableView fx:id="usersTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colId" text="ID" prefWidth="50"/>
+            <TableColumn fx:id="colUsername" text="Логин" prefWidth="100"/>
+            <TableColumn fx:id="colFullName" text="ФИО" prefWidth="150"/>
+            <TableColumn fx:id="colEmail" text="Email" prefWidth="180"/>
+            <TableColumn fx:id="colPhone" text="Телефон" prefWidth="120"/>
+            <TableColumn fx:id="colRole" text="Роль" prefWidth="100"/>
+            <TableColumn fx:id="colActions" text="Действия" prefWidth="150"/>
+        </columns>
+    </TableView>
+    
+    <!-- Статус операции -->
+    <Label fx:id="statusLabel" visible="false" styleClass="status-message"/>
+</VBox>
+

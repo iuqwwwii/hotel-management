@@ -1,0 +1,287 @@
+/* Стили для компонентов отзывов */
+
+.review-card {
+    -fx-background-color: white;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 0);
+    -fx-background-radius: 5;
+    -fx-padding: 15;
+    -fx-spacing: 10;
+    -fx-border-color: rgba(200, 200, 200, 0.3);
+    -fx-border-width: 1;
+    -fx-border-radius: 5;
+}
+
+/* Адаптация карточек отзывов для темного интерфейса админа/директора */
+.content-pane .review-card {
+    -fx-background-color: rgba(45, 65, 95, 0.8);
+    -fx-border-color: rgba(100, 180, 255, 0.3);
+    -fx-border-width: 1;
+    -fx-border-radius: 5;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 3);
+}
+
+.review-header {
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}
+
+/* Адаптация заголовка для темного интерфейса */
+.content-pane .review-header {
+    -fx-text-fill: #90caf9;
+}
+
+.review-date {
+    -fx-text-fill: #888888;
+    -fx-font-size: 12px;
+}
+
+/* Адаптация даты для темного интерфейса */
+.content-pane .review-date {
+    -fx-text-fill: #64b5f6;
+}
+
+.review-content {
+    -fx-font-size: 13px;
+    -fx-wrap-text: true;
+}
+
+/* Адаптация контента для темного интерфейса */
+.content-pane .review-content {
+    -fx-text-fill: #e3f2fd;
+}
+
+.review-title {
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}
+
+/* Адаптация заголовка отзыва для темного интерфейса */
+.content-pane .review-title {
+    -fx-text-fill: #bbdefb;
+}
+
+.review-rating {
+    -fx-text-fill: #f39c12;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}
+
+.review-room {
+    -fx-text-fill: #3498db;
+    -fx-font-size: 13px;
+}
+
+/* Адаптация информации о номере для темного интерфейса */
+.content-pane .review-room {
+    -fx-text-fill: #82b1ff;
+    -fx-font-weight: bold;
+}
+
+.room-number {
+    -fx-text-fill: #2196f3;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+}
+
+/* Адаптация номера комнаты для темного интерфейса */
+.content-pane .room-number {
+    -fx-text-fill: #82b1ff;
+    -fx-effect: dropshadow(gaussian, rgba(130, 177, 255, 0.4), 3, 0, 0, 0);
+}
+
+.user-name {
+    -fx-text-fill: #607d8b;
+    -fx-font-size: 13px;
+}
+
+/* Адаптация имени пользователя для темного интерфейса */
+.content-pane .user-name {
+    -fx-text-fill: #b3e5fc;
+}
+
+.comment-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #37474f;
+    -fx-wrap-text: true;
+}
+
+/* Адаптация текста комментария для темного интерфейса */
+.content-pane .comment-label {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14px;
+}
+
+.add-review-button {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 3, 0, 0, 1);
+}
+
+.add-review-button:hover {
+    -fx-background-color: #45a049;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 5, 0, 0, 2);
+    -fx-scale-x: 1.02;
+    -fx-scale-y: 1.02;
+}
+
+/* Адаптация кнопок для темного интерфейса */
+.content-pane .add-review-button {
+    -fx-background-color: linear-gradient(to bottom, #66bb6a, #388e3c);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 4, 0.2, 0, 2);
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+}
+
+.content-pane .add-review-button:hover {
+    -fx-background-color: linear-gradient(to bottom, #81c784, #43a047);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 6, 0.3, 0, 3);
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+}
+
+.delete-review-button {
+    -fx-background-color: #f44336;
+    -fx-text-fill: white;
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+}
+
+.delete-review-button:hover {
+    -fx-background-color: #d32f2f;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 5, 0, 0, 2);
+    -fx-scale-x: 1.02;
+    -fx-scale-y: 1.02;
+}
+
+/* Адаптация кнопки удаления для темного интерфейса */
+.content-pane .delete-review-button {
+    -fx-background-color: linear-gradient(to bottom, #f44336, #d32f2f);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 4, 0.2, 0, 2);
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+}
+
+.content-pane .delete-review-button:hover {
+    -fx-background-color: linear-gradient(to bottom, #e57373, #ef5350);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 6, 0.3, 0, 3);
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+}
+
+.review-list {
+    -fx-background-color: transparent;
+    -fx-padding: 10;
+}
+
+.rating-star {
+    -fx-fill: #f39c12;
+}
+
+/* Адаптация скролла для темного интерфейса */
+.content-pane .reviews-scroll-pane {
+    -fx-background: transparent;
+}
+
+.content-pane .reviews-scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
+/* Стили для разделителя в карточке отзыва */
+.review-separator {
+    -fx-opacity: 0.3;
+}
+
+.content-pane .review-separator {
+    -fx-background-color: #64b5f6;
+    -fx-opacity: 0.4;
+}
+
+/* Стили для кнопки ответа на отзыв */
+.btn-primary {
+    -fx-background-color: #2196f3;
+    -fx-text-fill: white;
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+}
+
+.btn-primary:hover {
+    -fx-background-color: #1976d2;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 5, 0, 0, 2);
+    -fx-scale-x: 1.02;
+    -fx-scale-y: 1.02;
+}
+
+.content-pane .btn-primary {
+    -fx-background-color: linear-gradient(to bottom, #42a5f5, #1976d2);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 4, 0.2, 0, 2);
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+}
+
+.content-pane .btn-primary:hover {
+    -fx-background-color: linear-gradient(to bottom, #64b5f6, #2196f3);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 6, 0.3, 0, 3);
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+}
+
+/* Стили для кнопки отмены */
+.btn-cancel {
+    -fx-background-color: #9e9e9e;
+    -fx-text-fill: white;
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+}
+
+.btn-cancel:hover {
+    -fx-background-color: #757575;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 5, 0, 0, 2);
+    -fx-scale-x: 1.02;
+    -fx-scale-y: 1.02;
+}
+
+.content-pane .btn-cancel {
+    -fx-background-color: linear-gradient(to bottom, #9e9e9e, #757575);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 4, 0.2, 0, 2);
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+}
+
+.content-pane .btn-cancel:hover {
+    -fx-background-color: linear-gradient(to bottom, #bdbdbd, #9e9e9e);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 6, 0.3, 0, 3);
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+}
+
+/* Стили для кнопки опасных действий */
+.btn-danger {
+    -fx-background-color: #f44336;
+    -fx-text-fill: white;
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+}
+
+.btn-danger:hover {
+    -fx-background-color: #d32f2f;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 5, 0, 0, 2);
+    -fx-scale-x: 1.02;
+    -fx-scale-y: 1.02;
+}
+
+.content-pane .btn-danger {
+    -fx-background-color: linear-gradient(to bottom, #f44336, #d32f2f);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 4, 0.2, 0, 2);
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+}
+
+.content-pane .btn-danger:hover {
+    -fx-background-color: linear-gradient(to bottom, #e57373, #ef5350);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 6, 0.3, 0, 3);
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+} 

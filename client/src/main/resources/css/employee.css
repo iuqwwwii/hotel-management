@@ -1,0 +1,64 @@
+/* Фон и шрифты приложения */
+.root {
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-background-color: linear-gradient(to bottom, #fffae6, #fff4cc);
+}
+
+/* Верхний бар */
+.top-bar {
+    -fx-background-color: #ffda7b;
+    -fx-padding: 10 20;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 8, 0.3, 0, 2);
+}
+.welcome-label {
+    -fx-font-size: 18px;
+    -fx-text-fill: #663c00;
+}
+.btn-logout {
+    -fx-background-color: transparent;
+    -fx-text-fill: #663c00;
+    -fx-border-color: #663c00;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-padding: 5 15;
+}
+.btn-logout:hover {
+    -fx-background-color: rgba(102,60,0,0.1);
+}
+
+/* Боковое меню: карточки */
+.side-menu {
+    -fx-background-color: transparent;
+    -fx-padding: 30 10;
+}
+.menu-card {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 15;
+    -fx-padding: 15 20;
+    -fx-text-fill: #663c00;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-border-color: rgba(102,60,0,0.2);
+    -fx-border-radius: 15;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 6, 0.2, 0, 3);
+    -fx-cursor: hand;
+    -fx-transition: all 200ms ease-in-out;
+}
+.menu-card:hover {
+    -fx-background-color: #ffebcc;
+    -fx-scale-x: 1.02;
+    -fx-scale-y: 1.02;
+}
+
+/* Основная область */
+.content-area {
+    -fx-background-color: #ffffffee;
+    -fx-padding: 25;
+    -fx-background-radius: 12;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0.3, 0, 4);
+}
+.placeholder-text {
+    -fx-text-fill: #999;
+    -fx-font-size: 16px;
+}
+

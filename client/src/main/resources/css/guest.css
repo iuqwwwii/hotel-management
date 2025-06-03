@@ -1,0 +1,277 @@
+.root {
+    -fx-font-family: "Verdana", sans-serif;
+    -fx-background-color: linear-gradient(to bottom, #e0f7fa, #b2ebf2);
+}
+
+/* Верхний бар */
+.top-bar {
+    -fx-background-color: #4dd0e1;
+    -fx-padding: 10 20;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 8, 0.3, 0, 2);
+}
+.welcome-label {
+    -fx-font-size: 18px;
+    -fx-text-fill: #004d40;
+}
+.btn-logout {
+    -fx-background-color: transparent;
+    -fx-text-fill: #004d40;
+    -fx-border-color: #004d40;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-padding: 5 15;
+}
+.btn-logout:hover {
+    -fx-background-color: rgba(0,77,64,0.1);
+}
+
+/* Меню-карточки */
+.side-menu {
+    -fx-padding: 30 10;
+}
+.menu-card {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 15;
+    -fx-padding: 15 20;
+    -fx-text-fill: #004d40;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-border-color: rgba(0,77,64,0.2);
+    -fx-border-radius: 15;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 6, 0.2, 0, 3);
+    -fx-cursor: hand;
+    -fx-transition: all 200ms ease-in-out;
+}
+.menu-card:hover {
+    -fx-background-color: #b2dfdb;
+    -fx-scale-x: 1.02;
+    -fx-scale-y: 1.02;
+}
+
+/* Основная область */
+.content-area {
+    -fx-background-color: #ffffffee;
+    -fx-padding: 25;
+    -fx-background-radius: 12;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0.3, 0, 4);
+}
+.placeholder-text {
+    -fx-text-fill: #666;
+    -fx-font-size: 16px;
+}
+
+/* Карточки комнат */
+.room-card {
+    -fx-background-color: white;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-border-color: #e0e0e0;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 8, 0.2, 0, 2);
+    -fx-transition: all 0.3s ease;
+}
+
+.room-card:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0,150,136,0.2), 12, 0.4, 0, 4);
+    -fx-border-color: #26a69a;
+    -fx-background-color: #fafafa;
+}
+
+.room-image {
+    -fx-background-color: #f5f5f5;
+    -fx-background-radius: 4;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 4, 0.1, 0, 1);
+}
+
+.room-number {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #424242;
+}
+
+.room-status {
+    -fx-font-size: 12px;
+    -fx-background-radius: 4;
+    -fx-padding: 3 8;
+    -fx-background-color: #e0f2f1;
+}
+
+.room-type {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #00796b;
+}
+
+.room-detail-label {
+    -fx-text-fill: #757575;
+    -fx-font-size: 13px;
+}
+
+.room-detail-value {
+    -fx-text-fill: #212121;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+}
+
+.room-price {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #00897b;
+}
+
+.book-button {
+    -fx-background-color: #00897b;
+    -fx-text-fill: white;
+    -fx-background-radius: 4;
+    -fx-padding: 8 15;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+
+.book-button:hover {
+    -fx-background-color: #00796b;
+}
+
+.book-button:pressed {
+    -fx-background-color: #00695c;
+}
+
+.gallery-pane {
+    -fx-alignment: center;
+}
+
+/* Форма бронирования */
+.booking-form {
+    -fx-background-color: white;
+    -fx-padding: 20;
+    -fx-spacing: 15;
+}
+
+.booking-header {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #004d40;
+}
+
+.section-header {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #00796b;
+}
+
+.detail-label {
+    -fx-text-fill: #424242;
+    -fx-font-weight: normal;
+}
+
+.detail-value {
+    -fx-text-fill: #212121;
+    -fx-font-weight: bold;
+}
+
+.total-cost {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #00695c;
+}
+
+.payment-amount {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #00695c;
+}
+
+.confirm-button {
+    -fx-background-color: #00897b;
+    -fx-text-fill: white;
+    -fx-background-radius: 4;
+    -fx-padding: 10 20;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+
+.confirm-button:hover {
+    -fx-background-color: #00796b;
+}
+
+.cancel-button {
+    -fx-background-color: #e0e0e0;
+    -fx-text-fill: #424242;
+    -fx-padding: 10 20;
+    -fx-background-radius: 4;
+    -fx-cursor: hand;
+}
+
+.cancel-button:hover {
+    -fx-background-color: #bdbdbd;
+}
+
+/* Стили для формы отзывов */
+.content-pane {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-color: #e0e0e0;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0.3, 0, 4);
+}
+
+.action-button {
+    -fx-background-color: #00897b;
+    -fx-text-fill: white;
+    -fx-background-radius: 4;
+    -fx-padding: 10 20;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+
+.action-button:hover {
+    -fx-background-color: #00796b;
+}
+
+.action-button:pressed {
+    -fx-background-color: #00695c;
+}
+
+.btn-cancel {
+    -fx-background-color: #e0e0e0;
+    -fx-text-fill: #424242;
+    -fx-padding: 10 20;
+    -fx-background-radius: 4;
+    -fx-cursor: hand;
+}
+
+.btn-cancel:hover {
+    -fx-background-color: #bdbdbd;
+}
+
+.status-message {
+    -fx-padding: 8 12;
+    -fx-background-radius: 4;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}
+
+/* Стили для рейтинга */
+.radio-button {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.radio-button .radio {
+    -fx-border-width: 1px;
+    -fx-border-color: #00897b;
+    -fx-background-color: white;
+    -fx-background-radius: 15px;
+    -fx-border-radius: 15px;
+    -fx-padding: 3px;
+}
+
+.radio-button:selected .radio {
+    -fx-background-color: #00897b;
+}
+
+.radio-button .dot {
+    -fx-background-color: white;
+    -fx-background-radius: 10px;
+    -fx-padding: 4px;
+}
+

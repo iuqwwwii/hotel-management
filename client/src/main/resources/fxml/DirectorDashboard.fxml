@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.hotel.client.controller.DirectorController"
+            fx:id="rootPane"
+            stylesheets="@/css/admin.css">
+
+    <!-- Верхняя панель с приветствием и кнопкой выхода -->
+    <top>
+        <HBox alignment="CENTER_RIGHT" spacing="10" styleClass="content-pane" >
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            <Label fx:id="welcomeLabel" styleClass="welcome-label"/>
+            <Button text="Выход" onAction="#onLogout" styleClass="btn-logout"/>
+        </HBox>
+    </top>
+
+    <!-- Левая панель меню -->
+    <left>
+        <VBox spacing="10" styleClass="content-pane" >
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            <Button text="Обзор"           onAction="#onDashboard"      styleClass="menu-button"/>
+            <Button text="Бронирования"    onAction="#onViewBookings"   styleClass="menu-button"/>
+            <Button text="Номерной фонд"   onAction="#onViewRooms"      styleClass="menu-button"/>
+            <Button text="Партнеры"        onAction="#onManagePartners" styleClass="menu-button"/>
+            <Button text="Отзывы"          onAction="#onViewReviews"    styleClass="menu-button"/>
+        </VBox>
+    </left>
+
+    <!-- Центр будет динамически меняться контроллером -->
+    <center>
+        <StackPane fx:id="contentPlaceholder" styleClass="content-pane">
+            <Label text="Выберите пункт меню слева" />
+        </StackPane>
+    </center>
+
+</BorderPane> 

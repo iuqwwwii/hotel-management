@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.effect.DropShadow?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" 
+      fx:controller="com.hotel.client.controller.GuestAddReviewController"
+      spacing="20" styleClass="review-form-pane"
+      stylesheets="/css/reviews.css">
+    <padding><Insets top="25" right="25" bottom="25" left="25"/></padding>
+    
+    <!-- Заголовок формы -->
+    <HBox alignment="CENTER_LEFT" spacing="15">
+        <Label text="Оставить отзыв" styleClass="section-header">
+            <font>
+                <Font name="System Bold" size="24"/>
+            </font>
+            <effect>
+                <DropShadow radius="3.0" color="#00000033" offsetY="1.0"/>
+            </effect>
+        </Label>
+        <Region HBox.hgrow="ALWAYS" />
+        <Label styleClass="form-description">Ваш номер в отеле</Label>
+    </HBox>
+    
+    <!-- Информационный текст -->
+    <Label text="Ваше мнение помогает нам становиться лучше. Поделитесь впечатлениями о проживании в нашем отеле." 
+           styleClass="form-description" wrapText="true">
+        <graphic>
+            <Region styleClass="icon-info" prefWidth="20" prefHeight="20"/>
+        </graphic>
+    </Label>
+    
+    <!-- Разделитель -->
+    <Separator />
+    
+    <!-- Основная форма -->
+    <GridPane hgap="15" vgap="18" styleClass="review-form-grid">
+        <columnConstraints>
+            <ColumnConstraints hgrow="NEVER" minWidth="160"/>
+            <ColumnConstraints hgrow="ALWAYS"/>
+        </columnConstraints>
+        
+        <!-- Поле выбора бронирования -->
+        <Label text="Номер бронирования:" GridPane.columnIndex="0" GridPane.rowIndex="0" styleClass="form-label"/>
+        <ComboBox fx:id="bookingIdComboBox" promptText="Выберите номер бронирования" 
+                  GridPane.columnIndex="1" GridPane.rowIndex="0" maxWidth="Infinity" styleClass="booking-selector"/>
+        
+        <!-- Звезды рейтинга -->
+        <Label text="Ваша оценка:" GridPane.columnIndex="0" GridPane.rowIndex="1" styleClass="form-label"/>
+        <fx:define>
+            <ToggleGroup fx:id="ratingGroup"/>
+        </fx:define>
+        <HBox spacing="15" GridPane.columnIndex="1" GridPane.rowIndex="1" styleClass="rating-container">
+            <RadioButton fx:id="rating1" text="1" toggleGroup="$ratingGroup" styleClass="rating-star"/>
+            <RadioButton fx:id="rating2" text="2" toggleGroup="$ratingGroup" styleClass="rating-star"/>
+            <RadioButton fx:id="rating3" text="3" toggleGroup="$ratingGroup" styleClass="rating-star"/>
+            <RadioButton fx:id="rating4" text="4" toggleGroup="$ratingGroup" styleClass="rating-star"/>
+            <RadioButton fx:id="rating5" text="5" toggleGroup="$ratingGroup" styleClass="rating-star" selected="true"/>
+        </HBox>
+        
+        <!-- Заголовок отзыва -->
+        <Label text="Заголовок:" GridPane.columnIndex="0" GridPane.rowIndex="2" styleClass="form-label"/>
+        <TextField fx:id="titleField" promptText="Кратко опишите ваше впечатление" 
+                   GridPane.columnIndex="1" GridPane.rowIndex="2" styleClass="review-title-field"/>
+        
+        <!-- Текст отзыва -->
+        <Label text="Текст отзыва:" GridPane.columnIndex="0" GridPane.rowIndex="3" styleClass="form-label" GridPane.valignment="TOP">
+            <GridPane.margin>
+                <Insets top="8"/>
+            </GridPane.margin>
+        </Label>
+        <TextArea fx:id="reviewTextArea" promptText="Поделитесь подробностями вашего опыта" 
+                  GridPane.columnIndex="1" GridPane.rowIndex="3" prefHeight="180" styleClass="review-text-area"/>
+    </GridPane>
+    
+    <!-- Кнопки действий -->
+    <HBox spacing="15" alignment="CENTER_RIGHT">
+        <VBox.margin>
+            <Insets top="10"/>
+        </VBox.margin>
+        <Button text="Отмена" onAction="#onCancel" styleClass="btn-cancel">
+            <graphic>
+                <Region styleClass="icon-cancel" prefWidth="16" prefHeight="16"/>
+            </graphic>
+        </Button>
+        <Button text="Отправить отзыв" onAction="#onSubmitReview" styleClass="action-button">
+            <graphic>
+                <Region styleClass="icon-submit" prefWidth="16" prefHeight="16"/>
+            </graphic>
+            <effect>
+                <DropShadow radius="5.0" color="#00000040" offsetY="2.0"/>
+            </effect>
+        </Button>
+    </HBox>
+    
+    <!-- Статус отправки -->
+    <Label fx:id="statusLabel" styleClass="status-message" visible="false" alignment="CENTER" maxWidth="Infinity">
+        <VBox.margin>
+            <Insets top="10"/>
+        </VBox.margin>
+    </Label>
+</VBox> 

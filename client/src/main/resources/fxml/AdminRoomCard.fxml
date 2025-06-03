@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      styleClass="room-card" prefWidth="230" prefHeight="200"
+      style="-fx-background-color: white; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 0); -fx-background-radius: 5; -fx-border-color: #e0e0e0; -fx-border-radius: 5;">
+    
+    <padding>
+        <Insets top="15" right="15" bottom="15" left="15"/>
+    </padding>
+    
+    <Label fx:id="roomNumber" text="Номер №101" styleClass="room-number" style="-fx-text-fill: #000000;">
+        <font>
+            <Font name="System Bold" size="16.0"/>
+        </font>
+    </Label>
+    
+    <Label fx:id="roomType" text="Одноместный" styleClass="room-type" style="-fx-text-fill: #333333;">
+        <VBox.margin>
+            <Insets top="5" bottom="2"/>
+        </VBox.margin>
+    </Label>
+    
+    <Label fx:id="roomPrice" text="2000₽ / ночь" styleClass="room-price" style="-fx-text-fill: #000000;">
+        <font>
+            <Font size="14.0"/>
+        </font>
+        <VBox.margin>
+            <Insets bottom="10"/>
+        </VBox.margin>
+    </Label>
+    
+    <HBox alignment="CENTER_LEFT">
+        <Label text="Статус: " style="-fx-text-fill: #333333;"/>
+        <Label fx:id="roomStatus" text="Доступен" styleClass="room-status"/>
+    </HBox>
+    
+    <Region VBox.vgrow="ALWAYS"/>
+    
+    <HBox spacing="5">
+        <Button fx:id="editButton" text="Изменить" styleClass="edit-button" 
+                style="-fx-background-color: #4a90e2; -fx-text-fill: white; -fx-cursor: hand;"
+                HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+        <Button fx:id="deleteButton" text="Удалить" styleClass="delete-button"
+                style="-fx-background-color: #e24a4a; -fx-text-fill: white; -fx-cursor: hand;"
+                HBox.hgrow="ALWAYS" maxWidth="Infinity"/>
+    </HBox>
+</VBox> 

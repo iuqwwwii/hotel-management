@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.hotel.client.controller.LoginController"
+      alignment="CENTER" spacing="15"
+      stylesheets="@../css/style.css"
+      styleClass="login-pane"
+      prefWidth="400" prefHeight="350">
+
+    <Label text="%login.title" styleClass="form-title" />
+
+    <TextField fx:id="loginField" promptText="%login.username"
+               styleClass="text-field" />
+
+    <PasswordField fx:id="passField" promptText="%login.password"
+                   styleClass="password-field" />
+
+    <Button text="%login.button" onAction="#onLogin"
+            styleClass="btn-primary" />
+
+    <HBox alignment="CENTER">
+        <Label text="%login.noaccount" />
+        <Button text="%login.register" onAction="#openRegistration"
+                styleClass="btn-link" />
+    </HBox>
+
+    <Label fx:id="errorLabel" styleClass="error-label" />
+</VBox>
+
+

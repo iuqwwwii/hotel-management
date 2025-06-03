@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.effect.DropShadow?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" 
+      fx:controller="com.hotel.client.controller.ReviewItemCardController"
+      styleClass="review-card" spacing="15"
+      stylesheets="/css/reviews.css">
+    <padding><Insets top="18" right="20" bottom="18" left="20"/></padding>
+    <effect>
+        <DropShadow radius="5.0" color="#00000020" offsetY="2.0"/>
+    </effect>
+    
+    <!-- Верхняя часть карточки с информацией о номере и пользователе -->
+    <HBox alignment="CENTER_LEFT" spacing="15">
+        <!-- Информация о номере и пользователе -->
+        <VBox HBox.hgrow="ALWAYS" spacing="5">
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <Label fx:id="roomLabel" text="Номер 101" styleClass="room-number">
+                    <font>
+                        <Font name="System Bold" size="16"/>
+                    </font>
+                </Label>
+                <Label fx:id="reviewTitleLabel" text="" styleClass="review-title"/>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="8">
+                <Region styleClass="icon-user" prefWidth="14" prefHeight="14"/>
+                <Label fx:id="userLabel" text="Иван Иванов" styleClass="user-name"/>
+            </HBox>
+        </VBox>
+        
+        <!-- Оценка и дата -->
+        <VBox alignment="CENTER_RIGHT" spacing="5">
+            <HBox fx:id="ratingContainer" spacing="3" alignment="CENTER_RIGHT" styleClass="star-rating"/>
+            <HBox alignment="CENTER_RIGHT" spacing="5">
+                <Region styleClass="icon-calendar" prefWidth="12" prefHeight="12"/>
+                <Label fx:id="dateLabel" text="01.01.2025" styleClass="review-date"/>
+            </HBox>
+        </VBox>
+    </HBox>
+    
+    <!-- Разделитель -->
+    <Separator styleClass="review-separator"/>
+    
+    <!-- Текст отзыва -->
+    <Label fx:id="commentLabel" text="Отличный номер, всё понравилось!" wrapText="true" styleClass="comment-label"/>
+    
+    <!-- Кнопки действий (видимы только для соответствующих ролей) -->
+    <HBox fx:id="actionButtonsContainer" spacing="15" alignment="CENTER_RIGHT" visible="false" managed="false">
+        <Button fx:id="replyButton" text="Ответить" styleClass="btn-primary" onAction="#onReplyToReview">
+            <graphic>
+                <Region styleClass="icon-reply" prefWidth="14" prefHeight="14"/>
+            </graphic>
+        </Button>
+        <Button fx:id="deleteButton" text="Удалить" styleClass="btn-danger" onAction="#onDeleteReview">
+            <graphic>
+                <Region styleClass="icon-delete" prefWidth="14" prefHeight="14"/>
+            </graphic>
+        </Button>
+    </HBox>
+</VBox> 

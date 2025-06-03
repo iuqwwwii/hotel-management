@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" 
+      fx:controller="com.hotel.client.controller.DirectorFinancesController"
+      spacing="15" styleClass="content-pane">
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+    
+    <Label text="Финансовый анализ" styleClass="section-header" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+    
+    <!-- Панель выбора периода -->
+    <HBox spacing="15" alignment="CENTER_LEFT">
+        <Label text="Период:" />
+        <ComboBox fx:id="periodFilter" prefWidth="150" />
+        
+        <Label text="С:" />
+        <DatePicker fx:id="startDatePicker" />
+        
+        <Label text="По:" />
+        <DatePicker fx:id="endDatePicker" />
+        
+        <Region HBox.hgrow="ALWAYS" />
+        
+        <Button text="Применить" onAction="#onApplyFilters" 
+                style="-fx-background-color: #4285f4; -fx-text-fill: white;" />
+    </HBox>
+    
+    <!-- Панель ключевых показателей -->
+    <HBox spacing="15">
+        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS" style="-fx-background-color: #e3f2fd; -fx-padding: 15; -fx-background-radius: 5;">
+            <Label text="Общая выручка" styleClass="stat-title" style="-fx-font-weight: bold;"/>
+            <Label fx:id="totalRevenueLabel" text="0 BYN" styleClass="stat-value" style="-fx-font-size: 24px;"/>
+        </VBox>
+        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS" style="-fx-background-color: #e8f5e9; -fx-padding: 15; -fx-background-radius: 5;">
+            <Label text="Расходы" styleClass="stat-title" style="-fx-font-weight: bold;"/>
+            <Label fx:id="totalExpensesLabel" text="0 BYN" styleClass="stat-value" style="-fx-font-size: 24px;"/>
+        </VBox>
+        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS" style="-fx-background-color: #fff8e1; -fx-padding: 15; -fx-background-radius: 5;">
+            <Label text="Прибыль" styleClass="stat-title" style="-fx-font-weight: bold;"/>
+            <Label fx:id="profitLabel" text="0 BYN" styleClass="stat-value" style="-fx-font-size: 24px;"/>
+        </VBox>
+        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS" style="-fx-background-color: #f3e5f5; -fx-padding: 15; -fx-background-radius: 5;">
+            <Label text="Загрузка отеля" styleClass="stat-title" style="-fx-font-weight: bold;"/>
+            <Label fx:id="occupancyRateLabel" text="0%" styleClass="stat-value" style="-fx-font-size: 24px;"/>
+        </VBox>
+    </HBox>
+    
+    <!-- Графики финансов -->
+    <TabPane tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+        <Tab text="Доходы и расходы">
+            <VBox spacing="10">
+                <LineChart fx:id="revenueExpensesChart">
+                    <xAxis>
+                        <CategoryAxis label="Период"/>
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis label="Сумма, BYN"/>
+                    </yAxis>
+                </LineChart>
+            </VBox>
+        </Tab>
+        <Tab text="Структура доходов">
+            <VBox spacing="10">
+                <PieChart fx:id="revenueStructureChart" />
+            </VBox>
+        </Tab>
+        <Tab text="Структура расходов">
+            <VBox spacing="10">
+                <PieChart fx:id="expensesStructureChart" />
+            </VBox>
+        </Tab>
+        <Tab text="Прогноз">
+            <VBox spacing="10">
+                <AreaChart fx:id="forecastChart">
+                    <xAxis>
+                        <CategoryAxis label="Месяц"/>
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis label="Прогноз, BYN"/>
+                    </yAxis>
+                </AreaChart>
+            </VBox>
+        </Tab>
+    </TabPane>
+    
+    <!-- Таблица финансовых операций -->
+    <Label text="Финансовые операции" styleClass="section-header" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+    <TableView fx:id="transactionsTable" prefHeight="200">
+        <columns>
+            <TableColumn fx:id="dateColumn" text="Дата" prefWidth="120" />
+            <TableColumn fx:id="categoryColumn" text="Категория" prefWidth="150" />
+            <TableColumn fx:id="descriptionColumn" text="Описание" prefWidth="250" />
+            <TableColumn fx:id="amountColumn" text="Сумма" prefWidth="120" />
+            <TableColumn fx:id="typeColumn" text="Тип" prefWidth="100" />
+        </columns>
+    </TableView>
+    
+    <HBox alignment="CENTER_RIGHT" spacing="10">
+        <Button text="Экспорт отчета" onAction="#onExportReport" 
+                style="-fx-background-color: #4285f4; -fx-text-fill: white;"/>
+        <Button text="Обновить" onAction="#onRefresh" 
+                style="-fx-background-color: #4285f4; -fx-text-fill: white;"/>
+    </HBox>
+</VBox> 

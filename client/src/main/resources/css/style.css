@@ -1,0 +1,73 @@
+/* Общие настройки */
+.root {
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-base: #F5F5F5;
+}
+
+/* Фон для формы */
+.login-pane, .register-pane {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 4);
+    -fx-padding: 20;
+}
+
+/* Заголовки */
+.form-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+    -fx-padding: 0 0 10 0;
+}
+
+/* Поля ввода */
+.text-field, .password-field {
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+    -fx-border-color: #CCC;
+    -fx-border-width: 1;
+    -fx-padding: 8 10;
+    -fx-prompt-text-fill: #AAA;
+}
+.text-field:hover, .password-field:hover {
+    -fx-border-color: #888;
+}
+
+/* Кнопки */
+.btn-primary {
+    -fx-background-color: linear-gradient(to right, #7F7FD5, #86A8E7, #91EAE4);
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5;
+    -fx-padding: 8 20;
+}
+.btn-primary:hover {
+    -fx-background-color: linear-gradient(to right, #6E6ED0, #7791DB, #7DD3D8);
+}
+
+.btn-link {
+    -fx-background-color: transparent;
+    -fx-text-fill: #4A90E2;
+    -fx-underline: true;
+    -fx-padding: 4 0 0 0;
+}
+.btn-link:hover {
+    -fx-text-fill: #357ABD;
+}
+
+/* Ошибки */
+.error-label {
+    -fx-text-fill: #D32F2F;
+    -fx-font-size: 12px;
+    -fx-padding: 5 0 0 0;
+}
+
+.root {
+    -fx-background-color: linear-gradient(
+        to bottom right,
+        #FFDEE9 0%,
+        #B5FFFC 100%
+    );
+}
+

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.hotel.client.controller.EmployeeController"
+            fx:id="rootPane"
+            stylesheets="@/css/employee.css">
+
+    <top>
+        <HBox alignment="CENTER_RIGHT" spacing="15" styleClass="top-bar">
+            <Label fx:id="welcomeLabel" styleClass="welcome-label"/>
+            <Button text="Выход" onAction="#onLogout" styleClass="btn-logout"/>
+        </HBox>
+    </top>
+
+    <!-- Боковое меню -->
+    <left>
+        <VBox styleClass="side-menu" spacing="20">
+            <Button text="Обработка заявок"    onAction="#onProcessBookings" styleClass="menu-card"/>
+            <Button text="Управление услугами" onAction="#onManageServices"  styleClass="menu-card"/>
+            <Button text="Моё расписание"      onAction="#onProfile"         styleClass="menu-card"/>
+        </VBox>
+    </left>
+
+    <!-- Основная область -->
+    <center>
+        <StackPane fx:id="contentPlaceholder" styleClass="content-area">
+            <Label text="Выберите задачу слева" styleClass="placeholder-text"/>
+        </StackPane>
+    </center>
+
+</BorderPane>

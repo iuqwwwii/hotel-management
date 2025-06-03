@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.effect.GaussianBlur?>
+<?import javafx.scene.image.Image?>
+
+<StackPane fx:id="root" stylesheets="@/css/registration.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="com.hotel.client.controller.AuthController">
+
+    <!-- Фоновое изображение, которое растягивается на весь экран -->
+    <ImageView fitWidth="${root.width}" fitHeight="${root.height}" preserveRatio="false">
+        <image>
+            <Image url="/images/background.jpg"/>
+        </image>
+        <effect>
+            <GaussianBlur radius="10"/>
+        </effect>
+        <opacity>0.6</opacity>
+    </ImageView>
+    
+    <!-- Контейнер для центрирования форм -->
+    <HBox alignment="CENTER">
+        <VBox alignment="CENTER">
+            <!-- Login Pane -->
+            <VBox fx:id="loginPane" alignment="TOP_CENTER" maxWidth="400" minWidth="300" spacing="15" styleClass="form-container-responsive">
+                <Label styleClass="title-label" text="Авторизация" />
+                <TextField fx:id="loginField" promptText="Логин" styleClass="text-field" />
+                <PasswordField fx:id="passField" promptText="Пароль" styleClass="password-field" />
+                <Label fx:id="loginError" styleClass="error-label" />
+                <Button onAction="#onLogin" styleClass="btn-primary" text="Войти" />
+                <Hyperlink onAction="#showRegister" styleClass="btn-link" text="Нет аккаунта? Зарегистрироваться" />
+                <Button alignment="TOP_RIGHT" onAction="#onClose" styleClass="close-button" text="×" textOverrun="LEADING_ELLIPSIS" />
+            </VBox>
+
+            <!-- Register Pane -->
+            <VBox fx:id="registerPane" alignment="CENTER" maxWidth="400" minWidth="300" managed="false" spacing="15" styleClass="form-container-responsive" visible="false">
+                <Label styleClass="title-label" text="Регистрация" />
+                <TextField fx:id="usernameField" promptText="Логин" styleClass="text-field" />
+                <TextField fx:id="emailRegField" promptText="E-mail" styleClass="text-field" />
+                <TextField fx:id="fullNameRegField" promptText="ФИО" styleClass="text-field" />
+                <PasswordField fx:id="passRegField" promptText="Пароль" styleClass="password-field" />
+                <PasswordField fx:id="passRegConfirmField" promptText="Повторите пароль" styleClass="password-field" />
+                <Label fx:id="regError" styleClass="error-label" />
+                <Button onAction="#onRegister" styleClass="btn-primary" text="Зарегистрироваться" />
+                <Hyperlink onAction="#showLogin" styleClass="btn-link" text="Уже есть аккаунт? Войти" />
+                <Button alignment="TOP_RIGHT" onAction="#onClose" styleClass="close-button" text="×" />
+            </VBox>
+        </VBox>
+    </HBox>
+</StackPane>

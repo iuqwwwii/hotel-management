@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" 
+      fx:controller="com.hotel.client.controller.DirectorReportsController"
+      spacing="15" styleClass="content-pane">
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+    
+    <Label text="Аналитические отчеты" styleClass="section-header" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+    
+    <!-- Панель выбора отчета и периода -->
+    <HBox spacing="15" alignment="CENTER_LEFT">
+        <Label text="Тип отчета:" />
+        <ComboBox fx:id="reportTypeComboBox" prefWidth="200" />
+        
+        <Label text="Период:" />
+        <ComboBox fx:id="periodComboBox" prefWidth="150" />
+        
+        <Label text="С:" />
+        <DatePicker fx:id="startDatePicker" />
+        
+        <Label text="По:" />
+        <DatePicker fx:id="endDatePicker" />
+        
+        <Region HBox.hgrow="ALWAYS" />
+        
+        <Button text="Сформировать" onAction="#onGenerateReport" 
+                style="-fx-background-color: #4285f4; -fx-text-fill: white;" />
+    </HBox>
+    
+    <TabPane tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+        <!-- Вкладка с таблицей отчета -->
+        <Tab text="Данные">
+            <VBox spacing="10">
+                <TableView fx:id="reportTable" VBox.vgrow="ALWAYS">
+                    <!-- Колонки будут добавлены динамически в зависимости от типа отчета -->
+                </TableView>
+            </VBox>
+        </Tab>
+        
+        <!-- Вкладка с графиком -->
+        <Tab text="График">
+            <VBox spacing="10">
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Label text="Тип графика:" />
+                    <ComboBox fx:id="chartTypeComboBox" prefWidth="150" />
+                </HBox>
+                <StackPane fx:id="chartContainer" VBox.vgrow="ALWAYS">
+                    <!-- Здесь будет отображаться выбранный график -->
+                </StackPane>
+            </VBox>
+        </Tab>
+        
+        <!-- Вкладка с аналитикой -->
+        <Tab text="Аналитика">
+            <VBox spacing="10">
+                <Label text="Ключевые показатели" style="-fx-font-weight: bold; -fx-font-size: 16px;" />
+                
+                <GridPane hgap="20" vgap="10">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="150" prefWidth="200" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="150" prefWidth="200" />
+                    </columnConstraints>
+                    
+                    <Label text="Средняя загрузка:" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+                    <Label fx:id="avgOccupancyLabel" text="--" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+                    
+                    <Label text="Средний доход на номер:" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+                    <Label fx:id="avgRevenuePerRoomLabel" text="--" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+                    
+                    <Label text="Средняя продолжительность пребывания:" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+                    <Label fx:id="avgStayDurationLabel" text="--" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+                    
+                    <Label text="Самый популярный тип номера:" GridPane.rowIndex="3" GridPane.columnIndex="0" />
+                    <Label fx:id="mostPopularRoomTypeLabel" text="--" GridPane.rowIndex="3" GridPane.columnIndex="1" />
+                </GridPane>
+                
+                <Label text="Тенденции и рекомендации" style="-fx-font-weight: bold; -fx-font-size: 16px;" />
+                <TextArea fx:id="trendsTextArea" wrapText="true" editable="false" prefHeight="150" />
+            </VBox>
+        </Tab>
+    </TabPane>
+    
+    <HBox alignment="CENTER_RIGHT" spacing="10">
+        <Button text="Экспорт в Excel" onAction="#onExportToExcel" 
+                style="-fx-background-color: #4caf50; -fx-text-fill: white;"/>
+        <Button text="Экспорт в PDF" onAction="#onExportToPdf" 
+                style="-fx-background-color: #f44336; -fx-text-fill: white;"/>
+        <Button text="Печать" onAction="#onPrint" 
+                style="-fx-background-color: #9c27b0; -fx-text-fill: white;"/>
+    </HBox>
+</VBox> 

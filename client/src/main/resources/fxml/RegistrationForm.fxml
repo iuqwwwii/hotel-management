@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+
+<?import java.net.URL?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.hotel.client.controller.RegistrationController">
+    <stylesheets>
+        <URL value="@../css/registration.css" />
+    </stylesheets>
+
+    <ImageView fitWidth="800" fitHeight="600" preserveRatio="false">
+        <image>
+            <Image url="@../images/background.jpg" />
+
+        </image>
+    </ImageView>
+
+    <VBox alignment="CENTER" spacing="10.0" layoutX="200" layoutY="100" styleClass="form-container">
+        <Label text="Sign Up" styleClass="title-label" />
+        <TextField fx:id="emailField" promptText="E-mail" />
+        <PasswordField fx:id="passwordField" promptText="Password" />
+        <PasswordField fx:id="confirmPasswordField" promptText="Repeat Password" />
+        <Label fx:id="errorLabel" textFill="red" />
+        <Button text="Register" onAction="#onRegister" styleClass="register-button"/>
+    </VBox>
+</AnchorPane>
+

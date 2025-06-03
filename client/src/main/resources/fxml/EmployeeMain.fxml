@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.Label?>
+<!-- EmployeeMain.fxml -->
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.hotel.client.controller.EmployeeController">
+    <top><Label text="%employee.welcome" style="-fx-font-size:18px; -fx-padding:10"/></top>
+    <center>
+        <!-- Форма регистрации заезда, создание брони, список комнат… -->
+    </center>
+</BorderPane>
+

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.hotel.client.controller.PartnerListController"
+      spacing="10" prefWidth="800" prefHeight="600" 
+      styleClass="content-pane" stylesheets="/css/admin.css">
+      
+    <padding>
+        <Insets top="15" right="15" bottom="15" left="15"/>
+    </padding>
+
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <Label text="Партнеры" styleClass="section-header"/>
+        <Region HBox.hgrow="ALWAYS" />
+        <Button fx:id="refreshButton" text="Обновить" onAction="#onRefresh"
+                styleClass="action-button"/>
+        <Button fx:id="addButton" text="Добавить" onAction="#onAddPartner"
+                styleClass="action-button-alt"/>
+    </HBox>
+    
+    <TableView fx:id="partnersTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="idColumn" text="ID" prefWidth="50" />
+            <TableColumn fx:id="nameColumn" text="Название" prefWidth="200" />
+            <TableColumn fx:id="contactInfoColumn" text="Контактная информация" prefWidth="250" />
+            <TableColumn fx:id="bookingsCountColumn" text="Бронирований" prefWidth="100" />
+            <TableColumn fx:id="revenueColumn" text="Выручка" prefWidth="150" />
+        </columns>
+        <placeholder>
+            <Label text="Нет данных о партнерах" />
+        </placeholder>
+    </TableView>
+    
+    <HBox spacing="10" alignment="CENTER_RIGHT">
+        <Label fx:id="statusLabel" HBox.hgrow="ALWAYS" maxWidth="Infinity" />
+        <Button fx:id="editButton" text="Редактировать" onAction="#onEditPartner"
+                styleClass="action-button" disable="true"/>
+        <Button fx:id="deleteButton" text="Удалить" onAction="#onDeletePartner"
+                styleClass="btn-delete" disable="true"/>
+    </HBox>
+</VBox> 

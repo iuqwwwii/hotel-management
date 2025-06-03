@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane xmlns:fx="http://javafx.com/fxml" 
+           fx:controller="com.hotel.client.controller.DirectorDashboardHomeController"
+           fitToWidth="true" fitToHeight="true" 
+           pannable="true" styleClass="edge-to-edge">
+    <VBox spacing="15" styleClass="content-pane">
+        <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+        
+        <Label text="Обзор отеля" styleClass="section-header">
+            <font>
+                <Font name="System Bold" size="24"/>
+            </font>
+        </Label>
+        
+        <!-- Панель статистики -->
+        <HBox spacing="15">
+            <VBox styleClass="stat-card" HBox.hgrow="ALWAYS" minHeight="100">
+                <padding><Insets top="15" right="15" bottom="15" left="15"/></padding>
+                <Label text="Свободные номера" styleClass="stat-title"/>
+                <Label fx:id="availableRoomsLabel" text="--" styleClass="stat-value"/>
+            </VBox>
+            <VBox styleClass="stat-card" HBox.hgrow="ALWAYS" minHeight="100">
+                <padding><Insets top="15" right="15" bottom="15" left="15"/></padding>
+                <Label text="Занятые номера" styleClass="stat-title"/>
+                <Label fx:id="occupiedRoomsLabel" text="--" styleClass="stat-value"/>
+            </VBox>
+            <VBox styleClass="stat-card" HBox.hgrow="ALWAYS" minHeight="100">
+                <padding><Insets top="15" right="15" bottom="15" left="15"/></padding>
+                <Label text="Активные бронирования" styleClass="stat-title"/>
+                <Label fx:id="activeBookingsLabel" text="--" styleClass="stat-value"/>
+            </VBox>
+            <VBox styleClass="stat-card" HBox.hgrow="ALWAYS" minHeight="100">
+                <padding><Insets top="15" right="15" bottom="15" left="15"/></padding>
+                <Label text="Выручка (текущий месяц)" styleClass="stat-title"/>
+                <Label fx:id="revenueLabel" text="--" styleClass="stat-value"/>
+            </VBox>
+        </HBox>
+        
+        <!-- Панель бронирований и графики -->
+        <HBox spacing="15" VBox.vgrow="ALWAYS">
+            <!-- Левая панель с бронированиями -->
+            <VBox spacing="10" styleClass="chart" HBox.hgrow="ALWAYS" minHeight="400" prefWidth="650">
+                <padding><Insets top="15" right="15" bottom="15" left="15"/></padding>
+                
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Label text="Бронирования" styleClass="chart-title"/>
+                    <Pane HBox.hgrow="ALWAYS" />
+                    <ComboBox fx:id="statusFilterCombo" promptText="Фильтр по статусу"/>
+                    <Button fx:id="refreshButton" text="Обновить" onAction="#onRefresh" styleClass="action-button"/>
+                </HBox>
+                
+                <TableView fx:id="bookingsTable" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="idColumn" text="ID" prefWidth="40"/>
+                        <TableColumn fx:id="userColumn" text="Гость" prefWidth="100"/>
+                        <TableColumn fx:id="roomColumn" text="Номер" prefWidth="80"/>
+                        <TableColumn fx:id="datesColumn" text="Даты" prefWidth="140"/>
+                        <TableColumn fx:id="costColumn" text="Стоимость" prefWidth="80"/>
+                        <TableColumn fx:id="statusColumn" text="Статус" prefWidth="80"/>
+                        <TableColumn fx:id="actionsColumn" text="Действия" prefWidth="120"/>
+                    </columns>
+                    <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+                    </columnResizePolicy>
+                </TableView>
+                
+                <HBox spacing="10" alignment="CENTER_RIGHT">
+                    <Label fx:id="totalBookingsLabel" text="Всего бронирований: 0"/>
+                </HBox>
+            </VBox>
+            
+            <!-- Правая панель с графиками -->
+            <VBox spacing="15" HBox.hgrow="ALWAYS" minWidth="300" prefWidth="350">
+                <!-- График распределения статусов бронирований -->
+                <VBox styleClass="chart" VBox.vgrow="ALWAYS" minHeight="200">
+                    <padding><Insets top="15" right="15" bottom="15" left="15"/></padding>
+                    <Label text="Статусы бронирований" styleClass="chart-title"/>
+                    <PieChart fx:id="bookingStatusChart" legendVisible="true" labelsVisible="true" 
+                              VBox.vgrow="ALWAYS" animated="false" labelLineLength="20"/>
+                </VBox>
+                
+                <!-- Последние события -->
+                <VBox styleClass="chart" VBox.vgrow="ALWAYS" minHeight="200">
+                    <padding><Insets top="15" right="15" bottom="15" left="15"/></padding>
+                    <Label text="Последние события" styleClass="chart-title"/>
+                    <ListView fx:id="recentEventsListView" VBox.vgrow="ALWAYS"/>
+                </VBox>
+            </VBox>
+        </HBox>
+        
+        <!-- График загрузки -->
+        <VBox styleClass="chart" minHeight="250" VBox.vgrow="ALWAYS">
+            <padding><Insets top="15" right="15" bottom="15" left="15"/></padding>
+            <Label text="Загрузка отеля по месяцам" styleClass="chart-title"/>
+            <BarChart fx:id="occupancyChart" legendVisible="false" VBox.vgrow="ALWAYS" animated="false">
+                <xAxis>
+                    <CategoryAxis label="Месяц" tickLabelRotation="0">
+                        <tickLabelFont>
+                            <Font size="11"/>
+                        </tickLabelFont>
+                    </CategoryAxis>
+                </xAxis>
+                <yAxis>
+                    <NumberAxis label="Загрузка, %" lowerBound="0" upperBound="100" tickUnit="20">
+                        <tickLabelFont>
+                            <Font size="11"/>
+                        </tickLabelFont>
+                    </NumberAxis>
+                </yAxis>
+            </BarChart>
+        </VBox>
+    </VBox>
+</ScrollPane> 

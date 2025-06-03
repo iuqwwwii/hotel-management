@@ -1,0 +1,23 @@
+.room-card {
+    -fx-background-color: white;
+    -fx-padding: 10;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 4);
+}
+.room-image {
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+}
+.room-type {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+}
+.room-price {
+    -fx-font-size: 14px;
+    -fx-text-fill: gray;
+}
+.gallery-pane {
+    -fx-padding: 20;
+    -fx-background-color: #f5f5f5;
+}

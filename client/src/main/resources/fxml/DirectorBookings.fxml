@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" 
+      fx:controller="com.hotel.client.controller.DirectorBookingsController"
+      spacing="15" styleClass="content-pane">
+      
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+    
+    <Label text="Управление бронированиями" styleClass="section-header"/>
+    
+    <!-- Панель статистики -->
+    <HBox spacing="15">
+        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
+            <Label text="Всего бронирований" styleClass="stat-title"/>
+            <Label fx:id="totalBookingsLabel" text="0" styleClass="stat-value"/>
+        </VBox>
+        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
+            <Label text="Активных" styleClass="stat-title"/>
+            <Label fx:id="activeBookingsLabel" text="0" styleClass="stat-value"/>
+        </VBox>
+        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
+            <Label text="Заселено" styleClass="stat-title"/>
+            <Label fx:id="checkedInLabel" text="0" styleClass="stat-value"/>
+        </VBox>
+        <VBox styleClass="stat-card" HBox.hgrow="ALWAYS">
+            <Label text="Отменено" styleClass="stat-title"/>
+            <Label fx:id="cancelledLabel" text="0" styleClass="stat-value"/>
+        </VBox>
+    </HBox>
+    
+    <!-- График загрузки по месяцам -->
+    <VBox styleClass="content-pane">
+        <Label text="Загрузка по месяцам" styleClass="chart-title"/>
+        <BarChart fx:id="monthlyChart" legendVisible="false">
+            <xAxis>
+                <CategoryAxis label="Месяц"/>
+            </xAxis>
+            <yAxis>
+                <NumberAxis label="Количество бронирований"/>
+            </yAxis>
+        </BarChart>
+    </VBox>
+    
+    <!-- Фильтры и таблица бронирований -->
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Label text="Фильтр:"/>
+        <ComboBox fx:id="statusFilterCombo" promptText="Статус"/>
+        <ComboBox fx:id="periodFilterCombo" promptText="Период"/>
+        <Button fx:id="refreshButton" text="Обновить" onAction="#onRefresh"/>
+        <Pane HBox.hgrow="ALWAYS"/>
+        <Button text="Экспорт в CSV" onAction="#onExportCsv"/>
+    </HBox>
+    
+    <TableView fx:id="bookingsTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="idColumn" text="ID" prefWidth="60"/>
+            <TableColumn fx:id="userColumn" text="Гость" prefWidth="150"/>
+            <TableColumn fx:id="roomColumn" text="Номер" prefWidth="100"/>
+            <TableColumn fx:id="datesColumn" text="Даты" prefWidth="180"/>
+            <TableColumn fx:id="costColumn" text="Стоимость" prefWidth="100"/>
+            <TableColumn fx:id="statusColumn" text="Статус" prefWidth="100"/>
+            <TableColumn fx:id="actionsColumn" text="Действия" prefWidth="150"/>
+        </columns>
+    </TableView>
+</VBox> 

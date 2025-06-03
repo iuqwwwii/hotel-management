@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.hotel.client.controller.AdminController"
+            fx:id="rootPane"
+            prefWidth="800" prefHeight="600"
+            stylesheets="/css/admin.css">
+
+    <!-- Верхняя панель с приветствием -->
+    <top>
+        <Label fx:id="welcomeLabel"
+               text="%admin.welcome"
+               styleClass="welcome-label"
+               style="-fx-padding:10"/>
+    </top>
+
+    <!-- Левая панель меню -->
+    <left>
+        <VBox spacing="10" styleClass="left-menu">
+            <padding>
+                <Insets top="20" left="10" right="10" bottom="20"/>
+            </padding>
+            <Button text="Управление пользователями" onAction="#onManageUsers" styleClass="menu-button"/>
+            <Button text="Управление номерами" onAction="#onManageRooms" styleClass="menu-button"/>
+            <Button text="Обработка броней" onAction="#onProcessBookings" styleClass="menu-button"/>
+            <Button text="Управление партнерами" onAction="#onManagePartners" styleClass="menu-button"/>
+            <Button text="Просмотр отзывов" onAction="#onViewReviews" styleClass="menu-button"/>
+            <Button text="Создать тестовые отзывы" onAction="#onCreateTestReviews" styleClass="menu-button"/>
+            <Button text="Экспорт данных" onAction="#onExportData" styleClass="menu-button"/>
+            <Button text="Отчёты" onAction="#onViewReports" styleClass="menu-button"/>
+            <Button text="Логи" onAction="#onViewLogs" styleClass="menu-button"/>
+            <Separator />
+            <Button text="Выйти" onAction="#onLogout" styleClass="btn-logout"/>
+        </VBox>
+    </left>
+
+    <!-- Центр: сюда будем подгружать соответствующие FXML -->
+    <center>
+        <StackPane fx:id="contentPlaceholder">
+            <Label text="Выберите пункт меню слева"
+                   style="-fx-font-size:14px; -fx-text-fill:gray;"/>
+        </StackPane>
+    </center>
+</BorderPane>
+
+

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" 
+      fx:controller="com.hotel.client.controller.GuestViewReviewsController"
+      spacing="15" styleClass="content-pane">
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+    
+    <Label text="Отзывы гостей" styleClass="section-header">
+        <font>
+            <Font name="System Bold" size="24"/>
+        </font>
+    </Label>
+    
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Label text="Фильтр:" />
+        <ComboBox fx:id="filterComboBox" prefWidth="200" />
+        <Region HBox.hgrow="ALWAYS" />
+        <Button fx:id="refreshButton" text="Обновить" onAction="#onRefresh" styleClass="action-button"/>
+    </HBox>
+    
+    <ScrollPane fx:id="reviewsScrollPane" fitToWidth="true" VBox.vgrow="ALWAYS">
+        <VBox fx:id="reviewsContainer" spacing="10" />
+    </ScrollPane>
+    
+    <Label fx:id="statusLabel" visible="false" styleClass="status-message"/>
+</VBox> 

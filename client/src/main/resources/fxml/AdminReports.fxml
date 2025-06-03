@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.chart.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" 
+      fx:controller="com.hotel.client.controller.AdminReportsController"
+      spacing="15" styleClass="content-pane">
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+    
+    <Label text="Отчеты и статистика" styleClass="section-header">
+        <font>
+            <Font name="System Bold" size="24"/>
+        </font>
+    </Label>
+    
+    <!-- Фильтры для отчетов -->
+    <HBox spacing="15" alignment="CENTER_LEFT">
+        <Label text="Период:" />
+        <ComboBox fx:id="periodComboBox" promptText="Выберите период" prefWidth="200"/>
+        <Button text="Обновить" onAction="#onRefresh" styleClass="action-button"/>
+    </HBox>
+    
+    <!-- Основные показатели -->
+    <TilePane hgap="15" vgap="15" prefColumns="3">
+        <VBox styleClass="stat-card" minWidth="200" minHeight="120">
+            <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+            <Label text="Всего бронирований" styleClass="stat-title"/>
+            <Label fx:id="totalBookingsLabel" text="0" styleClass="stat-value"/>
+        </VBox>
+        
+        <VBox styleClass="stat-card" minWidth="200" minHeight="120">
+            <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+            <Label text="Активных бронирований" styleClass="stat-title"/>
+            <Label fx:id="activeBookingsLabel" text="0" styleClass="stat-value"/>
+        </VBox>
+        
+        <VBox styleClass="stat-card" minWidth="200" minHeight="120">
+            <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+            <Label text="Отмененных бронирований" styleClass="stat-title"/>
+            <Label fx:id="cancelledBookingsLabel" text="0" styleClass="stat-value"/>
+        </VBox>
+        
+        <VBox styleClass="stat-card" minWidth="200" minHeight="120">
+            <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+            <Label text="Всего номеров" styleClass="stat-title"/>
+            <Label fx:id="totalRoomsLabel" text="0" styleClass="stat-value"/>
+        </VBox>
+        
+        <VBox styleClass="stat-card" minWidth="200" minHeight="120">
+            <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+            <Label text="Занятых номеров" styleClass="stat-title"/>
+            <Label fx:id="occupiedRoomsLabel" text="0" styleClass="stat-value"/>
+        </VBox>
+        
+        <VBox styleClass="stat-card" minWidth="200" minHeight="120">
+            <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+            <Label text="Свободных номеров" styleClass="stat-title"/>
+            <Label fx:id="availableRoomsLabel" text="0" styleClass="stat-value"/>
+        </VBox>
+    </TilePane>
+    
+    <!-- Графики -->
+    <TabPane>
+        <Tab text="Бронирования по статусам" closable="false">
+            <PieChart fx:id="bookingStatusChart" />
+        </Tab>
+        <Tab text="Загруженность по дням" closable="false">
+            <BarChart fx:id="occupancyChart">
+                <xAxis>
+                    <CategoryAxis label="Дата" />
+                </xAxis>
+                <yAxis>
+                    <NumberAxis label="Количество номеров" />
+                </yAxis>
+            </BarChart>
+        </Tab>
+        <Tab text="Рейтинг номеров" closable="false">
+            <BarChart fx:id="roomRatingChart">
+                <xAxis>
+                    <CategoryAxis label="Номер" />
+                </xAxis>
+                <yAxis>
+                    <NumberAxis label="Средний рейтинг" />
+                </yAxis>
+            </BarChart>
+        </Tab>
+    </TabPane>
+    
+    <!-- Статус загрузки -->
+    <Label fx:id="statusLabel" visible="false" styleClass="status-message"/>
+</VBox>
+

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" 
+      fx:controller="com.hotel.client.controller.AdminLogsController"
+      spacing="15" styleClass="content-pane">
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+    
+    <Label text="Журнал событий системы" styleClass="section-header">
+        <font>
+            <Font name="System Bold" size="24"/>
+        </font>
+    </Label>
+    
+    <!-- Фильтры для логов -->
+    <HBox spacing="15" alignment="CENTER_LEFT">
+        <Label text="Уровень:" />
+        <ComboBox fx:id="logLevelComboBox" promptText="Все уровни" prefWidth="150"/>
+        
+        <Label text="Категория:" />
+        <ComboBox fx:id="logCategoryComboBox" promptText="Все категории" prefWidth="150"/>
+        
+        <Label text="Период:" />
+        <ComboBox fx:id="periodComboBox" promptText="Все время" prefWidth="150"/>
+        
+        <Button text="Обновить" onAction="#onRefresh" styleClass="action-button"/>
+        <Button text="Очистить" onAction="#onClear" styleClass="btn-danger"/>
+    </HBox>
+    
+    <!-- Поле поиска -->
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <TextField fx:id="searchField" promptText="Поиск в логах..." HBox.hgrow="ALWAYS"/>
+        <Button text="Найти" onAction="#onSearch" styleClass="action-button"/>
+    </HBox>
+    
+    <!-- Таблица логов -->
+    <TableView fx:id="logsTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colTimestamp" text="Время" prefWidth="150"/>
+            <TableColumn fx:id="colLevel" text="Уровень" prefWidth="80"/>
+            <TableColumn fx:id="colCategory" text="Категория" prefWidth="120"/>
+            <TableColumn fx:id="colMessage" text="Сообщение" prefWidth="500"/>
+        </columns>
+    </TableView>
+    
+    <!-- Панель статуса -->
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Label fx:id="statusLabel" text="Загружено записей: 0"/>
+        <Region HBox.hgrow="ALWAYS" />
+        <Button text="Экспорт" onAction="#onExport" styleClass="action-button"/>
+    </HBox>
+</VBox>

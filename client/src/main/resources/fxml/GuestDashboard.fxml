@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.hotel.client.controller.GuestController"
+            fx:id="rootPane"
+            stylesheets="@/css/guest.css">
+
+    <top>
+        <HBox alignment="CENTER_RIGHT" spacing="15" styleClass="top-bar">
+            <Label fx:id="welcomeLabel" styleClass="welcome-label"/>
+            <Button text="Выход" onAction="#onLogout" styleClass="btn-logout"/>
+        </HBox>
+    </top>
+
+    <left>
+        <VBox styleClass="side-menu" spacing="20">
+            <Button text="Просмотр номеров"   onAction="#onViewRooms"     styleClass="menu-card"/>
+            <Button text="Мои бронирования"    onAction="#onViewBookings"  styleClass="menu-card"/>
+            <Button text="Оставить отзыв"     onAction="#onAddReview"     styleClass="menu-card"/>
+        </VBox>
+    </left>
+
+    <center>
+        <ScrollPane fitToWidth="true" fitToHeight="true" styleClass="content-scroll-pane">
+            <StackPane fx:id="contentPlaceholder" styleClass="content-area">
+                <Label text="Выберите действие слева" styleClass="placeholder-text"/>
+            </StackPane>
+        </ScrollPane>
+    </center>
+
+</BorderPane>

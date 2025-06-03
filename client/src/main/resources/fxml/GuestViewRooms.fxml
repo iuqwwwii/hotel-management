@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.hotel.client.controller.GuestRoomsController">
+    <top>
+        <ToolBar prefHeight="40">
+            <Button text="Обновить" onAction="#onRefresh" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Label text="Просмотр номеров" style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+        </ToolBar>
+    </top>
+    <center>
+        <TableView fx:id="roomsTable" prefWidth="600" prefHeight="400">
+            <columns>
+                <TableColumn fx:id="colNumber" text="Номер" prefWidth="100" />
+                <TableColumn fx:id="colType" text="Тип" prefWidth="150" />
+                <TableColumn fx:id="colPrice" text="Цена, BYN" prefWidth="150" />
+                <TableColumn fx:id="colStatus" text="Статус" prefWidth="150" />
+                <TableColumn fx:id="colAction" text="Действие" prefWidth="150" />
+            </columns>
+        </TableView>
+    </center>
+</BorderPane>

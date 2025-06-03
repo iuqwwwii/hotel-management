@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" 
+      fx:controller="com.hotel.client.controller.DirectorSettingsController"
+      spacing="15" styleClass="content-pane">
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+    
+    <Label text="Настройки системы" styleClass="section-header" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+    
+    <TabPane tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+        <!-- Вкладка общих настроек -->
+        <Tab text="Общие настройки">
+            <VBox spacing="15" style="-fx-padding: 15;">
+                <GridPane hgap="20" vgap="15">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="150" prefWidth="200" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="250" prefWidth="350" />
+                    </columnConstraints>
+                    
+                    <Label text="Название отеля:" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+                    <TextField fx:id="hotelNameField" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+                    
+                    <Label text="Адрес:" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+                    <TextField fx:id="hotelAddressField" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+                    
+                    <Label text="Телефон:" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+                    <TextField fx:id="hotelPhoneField" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+                    
+                    <Label text="Email:" GridPane.rowIndex="3" GridPane.columnIndex="0" />
+                    <TextField fx:id="hotelEmailField" GridPane.rowIndex="3" GridPane.columnIndex="1" />
+                    
+                    <Label text="Веб-сайт:" GridPane.rowIndex="4" GridPane.columnIndex="0" />
+                    <TextField fx:id="hotelWebsiteField" GridPane.rowIndex="4" GridPane.columnIndex="1" />
+                    
+                    <Label text="Время заезда:" GridPane.rowIndex="5" GridPane.columnIndex="0" />
+                    <HBox spacing="10" GridPane.rowIndex="5" GridPane.columnIndex="1">
+                        <ComboBox fx:id="checkInHourComboBox" prefWidth="80" />
+                        <Label text=":" />
+                        <ComboBox fx:id="checkInMinuteComboBox" prefWidth="80" />
+                    </HBox>
+                    
+                    <Label text="Время выезда:" GridPane.rowIndex="6" GridPane.columnIndex="0" />
+                    <HBox spacing="10" GridPane.rowIndex="6" GridPane.columnIndex="1">
+                        <ComboBox fx:id="checkOutHourComboBox" prefWidth="80" />
+                        <Label text=":" />
+                        <ComboBox fx:id="checkOutMinuteComboBox" prefWidth="80" />
+                    </HBox>
+                    
+                    <Label text="Валюта:" GridPane.rowIndex="7" GridPane.columnIndex="0" />
+                    <ComboBox fx:id="currencyComboBox" prefWidth="150" GridPane.rowIndex="7" GridPane.columnIndex="1" />
+                    
+                    <Label text="Язык интерфейса:" GridPane.rowIndex="8" GridPane.columnIndex="0" />
+                    <ComboBox fx:id="languageComboBox" prefWidth="150" GridPane.rowIndex="8" GridPane.columnIndex="1" />
+                </GridPane>
+                
+                <Separator />
+                
+                <HBox alignment="CENTER_RIGHT" spacing="10">
+                    <Button text="Сбросить" onAction="#onReset" 
+                            style="-fx-background-color: #e0e0e0;" />
+                    <Button text="Сохранить" onAction="#onSaveGeneralSettings" 
+                            style="-fx-background-color: #4285f4; -fx-text-fill: white;" />
+                </HBox>
+            </VBox>
+        </Tab>
+        
+        <!-- Вкладка настроек уведомлений -->
+        <Tab text="Уведомления">
+            <VBox spacing="15" style="-fx-padding: 15;">
+                <Label text="Настройки уведомлений" style="-fx-font-weight: bold; -fx-font-size: 16px;" />
+                
+                <CheckBox fx:id="emailNotificationsCheckBox" text="Включить уведомления по email" />
+                <CheckBox fx:id="smsNotificationsCheckBox" text="Включить SMS-уведомления" />
+                <CheckBox fx:id="systemNotificationsCheckBox" text="Включить системные уведомления" selected="true" />
+                
+                <Label text="События для уведомлений:" />
+                <VBox spacing="5">
+                    <CheckBox fx:id="newBookingNotifyCheckBox" text="Новое бронирование" selected="true" />
+                    <CheckBox fx:id="cancelledBookingNotifyCheckBox" text="Отмена бронирования" selected="true" />
+                    <CheckBox fx:id="checkInNotifyCheckBox" text="Заезд гостя" selected="true" />
+                    <CheckBox fx:id="checkOutNotifyCheckBox" text="Выезд гостя" selected="true" />
+                    <CheckBox fx:id="paymentNotifyCheckBox" text="Новый платеж" selected="true" />
+                    <CheckBox fx:id="lowOccupancyNotifyCheckBox" text="Низкая загрузка отеля" />
+                </VBox>
+                
+                <Separator />
+                
+                <HBox alignment="CENTER_RIGHT" spacing="10">
+                    <Button text="Сбросить" onAction="#onReset" 
+                            style="-fx-background-color: #e0e0e0;" />
+                    <Button text="Сохранить" onAction="#onSaveNotificationSettings" 
+                            style="-fx-background-color: #4285f4; -fx-text-fill: white;" />
+                </HBox>
+            </VBox>
+        </Tab>
+        
+        <!-- Вкладка настроек системы -->
+        <Tab text="Система">
+            <VBox spacing="15" style="-fx-padding: 15;">
+                <Label text="Настройки системы" style="-fx-font-weight: bold; -fx-font-size: 16px;" />
+                
+                <GridPane hgap="20" vgap="15">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="200" prefWidth="250" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="250" prefWidth="300" />
+                    </columnConstraints>
+                    
+                    <Label text="Адрес сервера:" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+                    <TextField fx:id="serverAddressField" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+                    
+                    <Label text="Порт:" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+                    <TextField fx:id="serverPortField" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+                    
+                    <Label text="Интервал автосохранения (мин):" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+                    <Slider fx:id="autoSaveIntervalSlider" min="1" max="60" value="10" 
+                            showTickLabels="true" showTickMarks="true" majorTickUnit="10" minorTickCount="1"
+                            GridPane.rowIndex="2" GridPane.columnIndex="1" />
+                    
+                    <Label text="Путь к резервным копиям:" GridPane.rowIndex="3" GridPane.columnIndex="0" />
+                    <HBox spacing="10" GridPane.rowIndex="3" GridPane.columnIndex="1">
+                        <TextField fx:id="backupPathField" HBox.hgrow="ALWAYS" />
+                        <Button text="..." onAction="#onSelectBackupPath" />
+                    </HBox>
+                    
+                    <Label text="Частота резервного копирования:" GridPane.rowIndex="4" GridPane.columnIndex="0" />
+                    <ComboBox fx:id="backupFrequencyComboBox" prefWidth="200" GridPane.rowIndex="4" GridPane.columnIndex="1" />
+                </GridPane>
+                
+                <Separator />
+                
+                <HBox alignment="CENTER_RIGHT" spacing="10">
+                    <Button text="Создать резервную копию" onAction="#onCreateBackup" 
+                            style="-fx-background-color: #ff9800; -fx-text-fill: white;" />
+                    <Button text="Сбросить" onAction="#onReset" 
+                            style="-fx-background-color: #e0e0e0;" />
+                    <Button text="Сохранить" onAction="#onSaveSystemSettings" 
+                            style="-fx-background-color: #4285f4; -fx-text-fill: white;" />
+                </HBox>
+            </VBox>
+        </Tab>
+        
+        <!-- Вкладка профиля пользователя -->
+        <Tab text="Профиль">
+            <VBox spacing="15" style="-fx-padding: 15;">
+                <Label text="Профиль пользователя" style="-fx-font-weight: bold; -fx-font-size: 16px;" />
+                
+                <GridPane hgap="20" vgap="15">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="150" prefWidth="200" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="250" prefWidth="350" />
+                    </columnConstraints>
+                    
+                    <Label text="Имя пользователя:" GridPane.rowIndex="0" GridPane.columnIndex="0" />
+                    <TextField fx:id="usernameField" GridPane.rowIndex="0" GridPane.columnIndex="1" />
+                    
+                    <Label text="Email:" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+                    <TextField fx:id="userEmailField" GridPane.rowIndex="1" GridPane.columnIndex="1" />
+                    
+                    <Label text="Текущий пароль:" GridPane.rowIndex="2" GridPane.columnIndex="0" />
+                    <PasswordField fx:id="currentPasswordField" GridPane.rowIndex="2" GridPane.columnIndex="1" />
+                    
+                    <Label text="Новый пароль:" GridPane.rowIndex="3" GridPane.columnIndex="0" />
+                    <PasswordField fx:id="newPasswordField" GridPane.rowIndex="3" GridPane.columnIndex="1" />
+                    
+                    <Label text="Подтверждение пароля:" GridPane.rowIndex="4" GridPane.columnIndex="0" />
+                    <PasswordField fx:id="confirmPasswordField" GridPane.rowIndex="4" GridPane.columnIndex="1" />
+                </GridPane>
+                
+                <Separator />
+                
+                <HBox alignment="CENTER_RIGHT" spacing="10">
+                    <Button text="Сбросить" onAction="#onReset" 
+                            style="-fx-background-color: #e0e0e0;" />
+                    <Button text="Сохранить" onAction="#onSaveProfileSettings" 
+                            style="-fx-background-color: #4285f4; -fx-text-fill: white;" />
+                </HBox>
+            </VBox>
+        </Tab>
+    </TabPane>
+</VBox> 

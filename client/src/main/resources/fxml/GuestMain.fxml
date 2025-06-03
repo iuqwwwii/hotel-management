@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.control.Label?>
+<!-- GuestMain.fxml -->
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.hotel.client.controller.GuestController">
+    <top><Label text="%guest.welcome" style="-fx-font-size:18px; -fx-padding:10"/></top>
+    <center>
+        <!-- Форма просмотра/отмены своих бронирований… -->
+    </center>
+</BorderPane>

@@ -1,0 +1,307 @@
+/* Стили для экспорта данных */
+
+.export-container {
+    -fx-background-color: rgba(25, 45, 80, 0.8);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 20, 0.3, 0, 5);
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-border-color: rgba(100, 180, 255, 0.3);
+}
+
+.header-container {
+    -fx-padding: 0 0 15 0;
+    -fx-border-width: 0 0 1 0;
+    -fx-border-color: rgba(100, 180, 255, 0.3);
+}
+
+.header-icon {
+    -fx-fill: #64b5f6;
+    -fx-scale-x: 1.5;
+    -fx-scale-y: 1.5;
+    -fx-effect: dropshadow(gaussian, rgba(100, 180, 255, 0.6), 8, 0.3, 0, 2);
+}
+
+.export-header {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #90caf9;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 3, 0.3, 0, 1);
+}
+
+/* Стили для панелей с опциями */
+.export-titled-pane {
+    -fx-background-color: rgba(35, 55, 90, 0.6);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0.3, 0, 3);
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-animated: true;
+}
+
+.export-titled-pane:hover {
+    -fx-background-color: rgba(40, 60, 100, 0.7);
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.4), 12, 0.4, 0, 4);
+}
+
+.export-titled-pane > .title {
+    -fx-background-color: linear-gradient(to bottom, #2a4270, #1a2a45);
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #90caf9;
+    -fx-padding: 10 15;
+    -fx-background-radius: 8 8 0 0;
+    -fx-border-radius: 8 8 0 0;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 5, 0.2, 0, 2);
+}
+
+.export-titled-pane > .title > .arrow-button > .arrow {
+    -fx-background-color: #64b5f6;
+    -fx-effect: dropshadow(gaussian, rgba(100, 180, 255, 0.5), 4, 0.2, 0, 1);
+}
+
+.export-options-pane {
+    -fx-background-color: rgba(30, 50, 80, 0.6);
+    -fx-border-color: rgba(100, 180, 255, 0.2);
+    -fx-border-width: 1;
+    -fx-background-radius: 0 0 8 8;
+    -fx-border-radius: 0 0 8 8;
+    -fx-padding: 15;
+}
+
+/* Стили для радио-кнопок */
+.radio-option {
+    -fx-padding: 8 12;
+    -fx-background-color: rgba(40, 70, 120, 0.3);
+    -fx-background-radius: 6;
+    -fx-border-radius: 6;
+    -fx-border-width: 1;
+    -fx-border-color: rgba(100, 180, 255, 0.2);
+    -fx-alignment: center-left;
+    -fx-cursor: hand;
+    -fx-transition-duration: 0.2s;
+}
+
+.radio-option:hover {
+    -fx-background-color: rgba(50, 85, 140, 0.4);
+    -fx-border-color: rgba(100, 180, 255, 0.4);
+    -fx-effect: dropshadow(gaussian, rgba(100, 180, 255, 0.2), 5, 0.2, 0, 2);
+    -fx-scale-x: 1.01;
+    -fx-scale-y: 1.01;
+}
+
+.option-icon {
+    -fx-fill: #64b5f6;
+    -fx-scale-x: 1.2;
+    -fx-scale-y: 1.2;
+}
+
+.export-radio {
+    -fx-text-fill: #d3eaff;
+}
+
+.export-radio .radio {
+    -fx-background-color: rgba(35, 55, 90, 0.6);
+    -fx-border-color: rgba(100, 180, 255, 0.5);
+    -fx-border-width: 1;
+    -fx-border-radius: 10;
+}
+
+.export-radio:selected .radio {
+    -fx-background-color: rgba(50, 100, 170, 0.6);
+    -fx-border-color: rgba(100, 180, 255, 0.8);
+}
+
+.export-radio:selected .dot {
+    -fx-background-color: #90caf9;
+    -fx-effect: dropshadow(gaussian, rgba(100, 180, 255, 0.8), 5, 0.3, 0, 0);
+}
+
+.export-radio:hover .radio {
+    -fx-border-color: rgba(100, 180, 255, 0.8);
+}
+
+/* Стили для текстовых полей и элементов формы */
+.export-param-label {
+    -fx-font-weight: bold;
+    -fx-text-fill: #90caf9;
+    -fx-font-size: 14px;
+}
+
+.param-icon {
+    -fx-fill: #64b5f6;
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+}
+
+.export-text-field {
+    -fx-background-color: rgba(25, 45, 80, 0.6);
+    -fx-text-fill: #e3f2fd;
+    -fx-font-size: 14px;
+    -fx-border-color: rgba(100, 180, 255, 0.4);
+    -fx-border-width: 1;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-padding: 8 12;
+}
+
+.export-text-field:focused {
+    -fx-background-color: rgba(30, 50, 90, 0.7);
+    -fx-border-color: rgba(100, 180, 255, 0.8);
+    -fx-effect: dropshadow(gaussian, rgba(100, 180, 255, 0.4), 8, 0.3, 0, 1);
+}
+
+.date-picker-container {
+    -fx-spacing: 10;
+}
+
+.export-date-picker {
+    -fx-background-color: rgba(25, 45, 80, 0.6);
+    -fx-border-color: rgba(100, 180, 255, 0.4);
+    -fx-border-width: 1;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+.export-date-picker .text-field {
+    -fx-background-color: transparent;
+    -fx-text-fill: #e3f2fd;
+    -fx-font-size: 14px;
+}
+
+.export-date-picker .arrow-button {
+    -fx-background-color: rgba(35, 55, 90, 0.6);
+    -fx-background-radius: 0 5 5 0;
+}
+
+.export-date-picker .arrow-button .arrow {
+    -fx-background-color: #64b5f6;
+}
+
+.export-date-picker:hover {
+    -fx-border-color: rgba(100, 180, 255, 0.6);
+}
+
+.export-date-picker:focused {
+    -fx-background-color: rgba(30, 50, 90, 0.7);
+    -fx-border-color: rgba(100, 180, 255, 0.8);
+}
+
+.export-checkbox {
+    -fx-text-fill: #d3eaff;
+    -fx-font-size: 14px;
+}
+
+.export-checkbox .box {
+    -fx-background-color: rgba(25, 45, 80, 0.6);
+    -fx-border-color: rgba(100, 180, 255, 0.5);
+    -fx-border-width: 1;
+    -fx-border-radius: 3;
+    -fx-background-radius: 3;
+}
+
+.export-checkbox:selected .box {
+    -fx-background-color: rgba(50, 100, 170, 0.6);
+    -fx-border-color: rgba(100, 180, 255, 0.8);
+}
+
+.export-checkbox:selected .mark {
+    -fx-background-color: #90caf9;
+}
+
+.export-checkbox:hover .box {
+    -fx-border-color: rgba(100, 180, 255, 0.8);
+    -fx-effect: dropshadow(gaussian, rgba(100, 180, 255, 0.4), 4, 0.2, 0, 1);
+}
+
+/* Стили для кнопок */
+.buttons-container {
+    -fx-padding: 10 0;
+}
+
+.export-button {
+    -fx-background-color: linear-gradient(to bottom, #1976d2, #0d47a1);
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 20;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 5, 0.2, 0, 2);
+    -fx-cursor: hand;
+}
+
+.export-button:hover {
+    -fx-background-color: linear-gradient(to bottom, #2196f3, #1976d2);
+    -fx-effect: dropshadow(gaussian, rgba(100, 180, 255, 0.4), 8, 0.3, 0, 3);
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+}
+
+.export-button:pressed {
+    -fx-background-color: linear-gradient(to bottom, #0d47a1, #0a3880);
+    -fx-scale-x: 0.97;
+    -fx-scale-y: 0.97;
+}
+
+.export-cancel-button {
+    -fx-background-color: rgba(40, 60, 100, 0.5);
+    -fx-text-fill: #b3e5fc;
+    -fx-border-color: rgba(100, 180, 255, 0.3);
+    -fx-border-width: 1;
+}
+
+.export-cancel-button:hover {
+    -fx-background-color: rgba(50, 70, 120, 0.6);
+    -fx-border-color: rgba(100, 180, 255, 0.5);
+}
+
+.export-cancel-button:pressed {
+    -fx-background-color: rgba(30, 50, 80, 0.6);
+    -fx-scale-x: 0.97;
+    -fx-scale-y: 0.97;
+}
+
+.button-icon {
+    -fx-fill: #b3e5fc;
+    -fx-scale-x: 1.1;
+    -fx-scale-y: 1.1;
+}
+
+.export-button .button-icon {
+    -fx-fill: white;
+}
+
+/* Статус */
+.status-container {
+    -fx-min-height: 40;
+}
+
+.status-label {
+    -fx-padding: 10 15;
+    -fx-font-size: 14px;
+    -fx-background-radius: 6;
+    -fx-font-weight: bold;
+    -fx-opacity: 0.9;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 5, 0.2, 0, 2);
+}
+
+.status-label.status-success {
+    -fx-text-fill: #a5d6a7;
+    -fx-background-color: rgba(30, 110, 50, 0.4);
+    -fx-border-color: rgba(30, 110, 50, 0.6);
+    -fx-border-width: 1;
+    -fx-border-radius: 6;
+}
+
+.status-label.status-error {
+    -fx-text-fill: #ef9a9a;
+    -fx-background-color: rgba(140, 40, 40, 0.4);
+    -fx-border-color: rgba(140, 40, 40, 0.6);
+    -fx-border-width: 1;
+    -fx-border-radius: 6;
+}
+
+/* Анимации */
+.export-titled-pane, .radio-option, .export-button, .export-cancel-button {
+    -fx-transition-duration: 0.2s;
+} 
